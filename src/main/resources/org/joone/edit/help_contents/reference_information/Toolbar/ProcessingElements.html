@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>Processing Elements</title>
+</head>
+<body>
+<h1>Processing Elements</h1>
+The processing elements of a neural network are available trought a
+little icon on the toolbar.<br>
+To put any of them on the drawing area, simply select its icon and
+click on the development pane.<br>
+Each component has a popup menu that can be shown simply right-clicking
+on a component's figure in the drawing area.<br>
+<br>
+<img src="../../images/popup.png" title="" alt="popup"
+ style="width: 154px; height: 116px;"><br>
+<br>
+The popup menu contains three menu items:<br>
+<br>
+<b>Properties:</b> displays the
+property window<br>
+The properties windows contains all the editable properties of the
+selected component. Its content can change depending on the kind of the
+processing element.<br>
+<br>
+<b>Inspect:</b> displays a table
+containing the internal values of the component.<br>
+<br>
+<img src="../../images/inspect_frame.png" title="" alt="inspect frame"
+ style="width: 324px; height: 176px;"><br>
+<br>
+In this sample is shown an inspect frame for an input synapse.<br>
+<ul>
+  <li>The '<b>Close</b>' button closes the frame.</li>
+  <li>The '<b>Copy</b>' button permits to copy the table in the
+clipboard to
+paste
+it into whatever application (a spreadsheet, for instance)</li>
+  <li>The '<b>Paste</b>' button permits to paste the content of the
+clipboard
+into the table, starting from the upper-left element. The data in the
+clipboard must have the same format already seen for the input data
+format of a FileInputSynapse component, i.e. the columns separated by a
+semicolon and the rows by a carriage return. In this manner it's
+possible set the initial values of a neural network by hand.<br>
+  </li>
+</ul>
+<br>
+The content of this window changes depending on the selected component:<br>
+<ul>
+  <li>for an <b>InputSynapse</b>, it
+shows the input patterns contained in the buffer (valid only for a
+buffered input synapse).</li>
+  <li>for a <b>Layer</b>, it shows a
+1D array containing the bias' values, one for each neuron of the Layer.</li>
+  <li>for a <b>Synapse</b>, it shows
+a 2D array containing the weights of each connection.</li>
+</ul>
+<br>
+<b>Delete:</b> eliminates the
+components from the neural network<br>
+<br>
+</body>
+</html>

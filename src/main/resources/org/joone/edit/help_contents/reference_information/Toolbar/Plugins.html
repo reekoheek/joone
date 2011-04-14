@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR" content="Mozilla/4.7 [en] (WinNT; I) [Netscape]"><title>Plugins</title></head>
+<body>
+<h1> <font color="#0000ff"></font></h1>
+<h1> Plugins</h1>
+Plugins are a set of components that affect how other components
+behave.
+<p><img src="../../images/plugins.png" nosave="" style="height: 24px; width: 164px;" title="" alt=""> </p>
+<p>These are the existing types of plugin: </p>
+<ul>
+  <li> <b>Input Plugins</b></li>
+  <br>
+Input plugins can be attached to input components (file input and url
+input). They alter the data produced by the input layer. <br>
+Input plugins are connected by drawing a connection from the red square
+of an input layer to the plugin. <br>
+Input plugins can be cascaded.
+  <p><img src="../../images/input_plugins.jpg" nosave="" alt="Input Plugins" height="56" width="337"> <br>
+&nbsp; </p>
+  <li> <b>Monitor Plugins</b></li>
+  <br>
+Monitor plugins are not attached to other components as they directly
+affect the learning phase of the network. <br>
+They affect the way that learning changes during the learning phase. <br>
+&nbsp; <br>
+  <li> <b>Output Plugins</b></li>
+  <br>
+Output plugins can be attached to output components (e.g file output
+and excel output).  They alter the data given to the output layer prior
+to being written by the output layer. <br>
+Output plugins are connected by drawing a connection from the red
+square of an output layer to the plugin. <br>
+Output plugins can be cascaded.
+  <p><img src="../../images/output_plugins.jpg" nosave="" alt="Input Plugins" height="140" width="307"> <br>
+&nbsp; </p>
+</ul>
+<br>
+<h3>Common Input and Output Converter Properties</h3>
+<p>Both the input and output converter plugins have one common property.</p>
+<ul>
+  <li><b>Advanced Serie Selector</b></li>
+  <p>The Advanced Serie Selector is used to specify what columns or
+serie to convert. For example if the input or output contained 4 columns
+you could specify that columns 1 and 3 be converted.</p>
+  <p>The selector must be a list of one or a comma delimeted list of
+multiple options. The options can be one column '2' or a range of
+columns '3-6'. The format for the selector is as follows ...</p>
+  <p>[col]{,[col]{,[col1-col2]}}</p>
+  <p>For example if the input source has 5 columns and you would like
+column 1 and columns 3,4,5 you could specify the selector as '1,2-5' or
+'1,2,3,4,5'.</p>
+  <li> <b>Name</b></li>
+  <p>The name of the plugin as displayed on the development pane.</p>
+  </ul> <b></b>
+<h3> Center on Zero</h3>
+This input plugin centers the data evenly around the zero point. That
+is, it subtracts the average of the data from each item. <br>
+<br>
+<h3> Normalizer</h3>
+This input plugin normalizes the data linearly between two bounds. <br>
+The extra properties that can be set for normalizer plugins:
+<ul>
+  <li> <b>Out Data Max</b></li>
+  <p>The upper bound or maximum value of the output or converted data.</p>
+  <li> <b>Out Data Min</b></li>
+  <p>The lower bound or minimum value of the output or converted data.</p>
+  <li> <b>In Data Max</b></li>
+  <p>The upper bound or maximum value of the input data.</p>
+  <li> <b>In Data Min</b></li>
+  <p>The lower bound or minimum value of the input data.</p>
+</ul>
+<b>Note : </b>
+<p>Setting both "In Data Max" and "In Data Min" to 0 will instruct the
+plugin to search for the upper (max) and lower (min) bound of the data.</p>
+<br>
+<h3> Turning Points Extractor</h3>
+This input plugin extracts the turning points of a time series. It
+generates a Boolean a signal that detects relative minima and maxima. <br>
+The extra property that can be set for turning point extractor plugins:
+<ul>
+  <li> <b>minChangePercentage</b></li>
+  <p>The amount that the time series must change by to be considered a
+real turning point. Setting this to a non-zero value reduces noise
+signals.</p>
+</ul>
+<br>
+<h3>Moving Average Converter</h3>
+Changes the specified input serie data so that it becomes a moving
+average of itself.
+<p>This plugin operates on specified columns or serie of data in a
+vertical fashion.  The converter calculates the moving average of a
+column i.e vertically.  The data in the column is converted so that it
+becomes a moving average of itself. If you chose a 3 row moving average
+then the first 2 rows will be set to 0 and the third and subsequent
+rows are set to the 3 row moving average.</p>
+<br>
+<p>For example if the serie to be converted contained the following
+data ....</p>
+<span style="font-family: monospace;">5</span><span style="font-family: monospace;"> </span><br style="font-family: monospace;">
+<span style="font-family: monospace;">15</span><span style="font-family: monospace;"> </span><br style="font-family: monospace;">
+<span style="font-family: monospace;">6</span><span style="font-family: monospace;"> </span><br style="font-family: monospace;">
+<span style="font-family: monospace;">8</span>
+<p> and the requested moving average was set at 3 then the serie would
+become .. </p>
+<span style="font-family: monospace;">0</span><span style="font-family: monospace;"> </span><br style="font-family: monospace;">
+<span style="font-family: monospace;">0</span><span style="font-family: monospace;"> </span><br style="font-family: monospace;">
+<span style="font-family: monospace;">8.67</span><span style="font-family: monospace;"> </span><br style="font-family: monospace;">
+<span style="font-family: monospace;">9.67</span>
+<p>So the column's rows are set to the sum of the previous two values
+and the current value divided by 3.</p>
+<p>The extra properties that should be specified by in this converter
+are ...</p>
+<ul>
+  <li><b>Moving Average</b></li>
+  <p>Specifies what the moving average should be for each column
+specified in the Advanced Serie Selector.  Note this should be a comma
+delimeted list e.g '10,20,50' would specify a moving average of 10 for
+the first selected column, a moving average of 20 for the second
+selected column and 50 for the third.</p></ul>
+<br>
+<h3>Delta Norm Plugin</h3>
+This plugin is used to calculate the normalized differences between the actual data and past values of a time series.<br>
+Used along with the TurningPointExtractor plugin is very useful to build time series signal generators.<br>
+<br>
+<h3>Shuffler Plugin</h3>
+<br>
+This plugin 'shuffles' the input rows at every epoch, permitting to
+train a neural network with a different patterns' input order for each
+epoch.<br>
+<h4>Note:</h4>
+The Shuffler plugin must be <span style="text-decoration: underline;">always</span> used in conjunction with the Input Connector component.<br>
+<br>
+<h3>Binary Plugin</h3>
+This plugin converts the input patterns to binary values.<br>
+<br>
+<h3> UnNormalizer</h3>
+This output plugin unnormalizes the data linearly between two bounds. <br>
+There are four extra properties that can be set for unnormalizer
+plugins:
+<ul>
+  <li> <b>Out Data Max</b></li>
+  <p>The upper bound or maximum value of the output or converted data.</p>
+  <li> <b>Out Data Min</b></li>
+  <p>The lower bound or minimum value of the output or converted data.</p>
+  <li> <b>In Data Max</b></li>
+  <p>The upper bound of the input data.</p>
+  <li> <b>In Data Min</b></li>
+  <p>The lower bound of the input data.</p>
+</ul>
+<b>Note : </b>
+<p>Setting both "In Data Max" and "In Data Min" to 0 will instruct the
+plugin to search for the upper and lower bound of the data.  Typically
+if a Sigmoid layer is attached to the output layer then these values
+will be 1.0 and 0.0 respectively.  For Tanh then these will be 1.0 and
+-1.0. For linear it will be Min = bias*(min of previous layer) , Max =
+bias*(max of previous layer). </p>
+<br>
+<h3> Linear Annealing</h3>
+This monitor plugin affect the control panel learning rate and momentum
+parameters during the learning phase. <br>
+Initial and final values for these parameters can be set, and they will
+be altered linearly during learning. <br>
+This can help to fine tune a network towards the end of its education
+instead of embarking on radically different configurations. <br>
+There are five properties that can be set for linear annealing plugins:
+ <ul>
+  <li> <b>LearningRateFinal</b></li>
+  <br>
+The final learning rate value. <li> <b>MomentumInitial</b></li>
+  <br>
+The initial momentum value. <li> <b>LearningRateInitial</b></li>
+  <br>
+The initial learning rate value. <li> <b>Name</b></li>
+  <br>
+The name of the plugin as displayed on the development pane. <li> <b>MomentumFinal</b></li>
+  <br>
+The final momentum value.
+</ul>
+<h3> Dynamic Annealing</h3>
+This monitor plugin affect the control panel learning rate parameter
+during the learning phase in much the same way as the linear annealing
+plugin. <br>
+The difference is that instead of changing the learning rate in a
+linear fashion, it reduces it by a percentage only if the error is worse
+than the previous round's. <br>
+This help to reduce the risk of a good configuration being lost as
+learning proceeds.
+<p>There are three properties that can be set for dynamic annealing
+plugins: </p>
+<ul>
+  <li> <b>Name</b></li>
+  <br>
+The name of the plugin as displayed on the development pane. <li> <b>Rate</b></li>
+  <br>
+The initial learning rate value. <li> <b>Change %</b></li>
+  <br>
+The rate at which the learning rate is reduced. The value should be
+between 0 and 100.
+</ul>
+<p><br>
+<br>
+&nbsp; </p>
+</body></html>

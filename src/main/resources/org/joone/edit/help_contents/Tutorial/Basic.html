@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title></title>
+	 	
+  <meta name="GENERATOR" content="OpenOffice.org 1.1.0  (Linux)">
+	
+  <meta name="CREATED" content="20030831;23314400">
+	
+  <meta name="CHANGED" content="20030831;23322000">
+</head>
+<body lang="en-US" dir="ltr">
+<h1 align="left">Basic Tutorial</h1>
+<p align="left" style="margin-bottom: 0cm;">This tutorial creates a
+simple network connecting a file input layer containing four examples of
+two input values to a file output layer via a linear layer containing
+two neurons.</p>
+<p align="left" style="margin-bottom: 0cm;"><br>
+</p>
+<ol>
+  <li>Using a text editor, 	create a new file and add four lines as
+follows:</li>
+</ol>
+<div style="margin-left: 80px;"> <span style="font-family: monospace;">0.2;0.3</span><span
+ style="font-family: monospace;"> </span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"> 0.4;0.5</span><span
+ style="font-family: monospace;"> </span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"> 0.6;0.8</span><span
+ style="font-family: monospace;"> </span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;"> 0.9;1.0</span> </div>
+<ol start="2">
+  <li>Save the file to 	disk (e.g. c:\temp\sample.txt). 	</li>
+  <li>Start JoonEdit and 	insert a new linear layer. Click on this
+layer to display the 	properties page. Set the rows value to 2. 	</li>
+  <li>Insert 	a File Input layer to the left of the linear layer, then
+click on it 	to display the properties window: </li>
+</ol>
+<ul style="margin-left: 40px;">
+  <li>Enter     1,2 in the Advanced Column Selector parameter. 	</li>
+  <li>Enter 	c:\temp\sample.txt in the fileName parameter.</li>
+  <li>Leave 	the firstRow as 1 and the lastRow as 0 so that the input
+layer will 	read all the rows in the file.</li>
+</ul>
+	
+<ol start="5">
+  <li>Connect 	the input layer to the linear layer by dragging a line from
+the little 	circle on the right hand side of the input layer, releasing
+the 	mouse button when the arrow is on the linear layer. 	</li>
+  <li>Now 	insert a File Output layer to the right of the linear layer,
+click 	on it and insert into the properties window: </li>
+</ol>
+<div style="margin-left: 40px;">”<span style="font-family: monospace;">c:\temp\sampleout.txt</span>”
+	on the fileName parameter. </div>
+<ol start="7">
+	<li>
+    <p lang="en-GB" align="left" style="margin-bottom: 0cm;">Connect
+	the linear layer to the file output layer by dragging a line from 	the
+little circle on the right hand side of the linear layer, 	releasing
+the mouse button when the arrow is on the file output 	layer.</p>
+	</li>
+  <li>
+    <p style="margin-bottom: 0cm;">At this stage the screen should
+	look similar to this:<br>
+    <img src="Basic_html_m5fe147e3.gif" name="Object23" align="bottom"
+ width="335" height="79"></p>
+  </li>
+</ol>
+<p lang="en-GB" align="left" style="margin-bottom: 0cm;"><br>
+</p>
+<ol start="9">
+	<li>
+    <p lang="en-GB" align="left" style="margin-bottom: 0cm;">Click 	on
+the ‘Tools-&gt;Control Panel’ menu item to display the control 	panel.
+Insert the following:</p>
+  </li>
+</ol>
+<div style="margin-left: 40px;">
+<ul>
+  <li>Set the 	epochs parameter to 1. This will process the file
+once. </li>
+  <li>Set the 	training patterns parameter to 4. This sets the number of example
+rows to 	read. </li>
+  <li>Leave 	the learningRate and the momentum fields unchanged.  These
+	parameters are used for training a net. </li>
+  <li>Also 	set the learning parameter to FALSE, as the net is not
+being 	trained. </li>
+</ul>
+</div>
+<ol start="10">
+	<li>
+    <p lang="en-GB" align="left" style="margin-bottom: 0cm;">Click 	the
+Run button</p>
+	</li>
+  <li>
+    <p lang="en-GB" align="left" style="margin-bottom: 0cm;">A file
+	named c:\temp\sampleout.txt will be written with the results.</p>
+	</li>
+  <li>
+    <p lang="en-GB" align="left" style="margin-bottom: 0cm;">If you
+	want, you can save the net to disk with the ‘File-&gt;Save As’ 	menu
+item, and reload it later with ‘File-&gt;Open’.</p>
+  </li>
+</ol>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>How to Teach a Network</title>
+</head>
+<body>
+<h1>How to Teach a Network</h1>
+<br>
+This tutorial follows on from the 'How to Save and Open a Network'
+tutorial.
+<p>The first step in teaching a network is to have some data  with
+which to teach it. For the xor problem, create data representing the
+inputs and output. Use a text editor to create a file with four rows of
+three semicolon-separated values: </p>
+<pre>0.0;0.0;0.0<br>0.0;1.0;1.0<br>1.0;0.0;1.0<br>1.0;1.0;0.0<br></pre>
+Save the file to disc, for example
+<pre>c:\joone\xor.txt<br></pre>
+The next step is to add a file input layer to the project. This will
+allow the data to be read by the network. After adding the file input
+layer, set the following parameters: <br>
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>File Input</td>
+    </tr>
+    <tr>
+      <td>Advanced Column Selector</td>
+      <td>1-2</td>
+    </tr>
+    <tr>
+      <td>File Name</td>
+      <td>c:\joone\xor.txt</td>
+    </tr>
+  </tbody>
+</table>
+<p>This will read all the data from the xor.txt file, using the first
+two columns of data. </p>
+<p>Connect the File Input layer to the Input layer. </p>
+<p><img src="../images/xor_4.jpg"> </p>
+<p>To educate the network, a teacher layer is required. </p>
+<p>Add a teacher layer to the project and configure its parameters as
+follows: <br>
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>Teacher</td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<p>Connect from the Output layer to the Teacher layer. </p>
+<p><img src="../images/xor_5.jpg"> </p>
+<p>For the teacher layer to teach the network, it must have some data
+to use as a reference. This data is the third (Output) column of the
+text file created earlier. </p>
+<p>A second file input layer is needed, reading the same file as the
+first, but accessing the output column. </p>
+<p>Add a file output layer to the project and configure it as follows: <br>
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>Desired Data</td>
+    </tr>
+    <tr>
+      <td>Advanced Column Selector</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>File Name</td>
+      <td>c:\joone\xor.txt</td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<p>This will read column 3 of the data for all rows. </p>
+<p>Note that step counter parameter is automatically set to false
+because the other file input component is acting as the control. </p>
+<p>Connect the file input layer by clicking on the teacher layer, and
+clicking and dragging a yellow line from the red square to the Desired
+Data layer. </p>
+<p><img src="../images/xor_6.jpg"> </p>
+<p>The network is now prepared. </p>
+<p>To teach the network, select Control Panel from the Tools menu. This will display the control panel. </p>
+<p>Set epochs to 10000. </p>
+<p>Set training patterns to 4. </p>
+<p>Set learning rate to 0.7 </p>
+<p>Set momentum to 0.6 </p>
+<p>Set learning to TRUE. </p>
+<p>This will teach the network with the 4 rows of data 10000 times. </p>
+<p>Click Run and you should see the training process start. The control
+panel shows the cycles completed and error of the network. </p>
+<p><img src="../images/xor_7.jpg"> </p>
+<p>The final value of the RMSE error should be very small (less than
+0.1). If it is not, try selecting Tools -&gt; Randomize to reset the
+network to a random state and select Tools -&gt; Add Noise to add
+some random noise to the network to help it find new options. </p>
+<p>The next tutorial, 'How to Run a Network' shows how to use this
+trained network to process data. </p>
+<p></p>
+<hr>
+</body>
+</html>

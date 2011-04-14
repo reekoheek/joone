@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>Labels</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.0  (Linux)">
+	<META NAME="CREATED" CONTENT="20030903;17045800">
+	<META NAME="CHANGED" CONTENT="20030903;17172300">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<H2>Charting Components</H2>
+<H3>The Basic Chart Layer</H3>
+<P><IMG SRC="../../images/charting.jpg" NAME="Graphic1" ALT="Charting" ALIGN=BOTTOM WIDTH=24 HEIGHT=24 BORDER=0>
+<BR><BR>This component belongs to the output components family, so it
+can be used anywhere that makes sense to insert an output component.
+For instance, it can be attached to the output of a Layer, or to the
+output of a Teacher component.<BR>The charting component has the
+following properties:<BR><BR><B>maxXaxis</B>:&nbsp;&nbsp;&nbsp; The
+maximum value of the X axis. Set this value to the maximum number of
+the samples required to visualise in the chart.<BR><B>maxYaxis</B>:&nbsp;&nbsp;&nbsp;
+The maximum value of the Y axis. Set this value to maximum value you
+expect to display in the chart.<BR><B>name</B>:&nbsp;&nbsp;&nbsp; The
+name of the chart component.<BR><B>resizable</B>:&nbsp;&nbsp;&nbsp;
+If true, the window containing the chart will be resizable. The
+resizing of the window will rescale the entire chart, adapting itself
+to the new size of the frame.<BR><B>show</B>:&nbsp;&nbsp;&nbsp; Used
+to show or hide the window containing the chart.<BR><B>title</B>:&nbsp;&nbsp;&nbsp;
+The text shown in the title bar of the window containing the
+chart.<BR><B>serie</B>:&nbsp;&nbsp;&nbsp; Indicates what series
+(column) in a multicolumn output data is to be displayed<BR><BR>To
+show the RMSE values during the training phase, attach a charting
+component to the output of a Teacher component, like depicted in the
+following figure:<BR><BR><IMG SRC="../../images/charting_sample.jpg" NAME="Graphic2" ALT="charting sample" ALIGN=BOTTOM WIDTH=321 HEIGHT=151 BORDER=0><BR><BR>Open
+the properties panel and set its properties according the expected
+values:<BR>- maxXaxis to a value depending on the max expected RMSE
+of your net (normally between 0.5 and 1.0)<BR>- maxYaxis equal to the
+number of epochs you want to train the neural network<BR>then set to
+true the show property and run the net. You'll see a chart like the
+following:<BR>&nbsp;<BR><IMG SRC="../../images/chart.jpg" NAME="Graphic3" ALT="chart" ALIGN=BOTTOM WIDTH=436 HEIGHT=285 BORDER=0></P>
+<H2>Plotting a multi-series chart</H2>
+<H3>The Chart Handle Layer</H3>
+<P><IMG SRC="../../images/CHARTHANDLE1.gif" NAME="Graphic4" ALIGN=BOTTOM WIDTH=25 HEIGHT=24 BORDER=0><BR><BR>This
+component permits to attach several output layers to a single Chart
+component to plot a multi-series chart.<BR>This component must be
+connected between an output layer and the Chart component, and you
+need to use one of it for each serie you want to plot.<BR>Its
+properties are:<BR><BR><B>Color (blue)</B><BR><B>Color (green)</B><BR><B>Color
+(red)</B>: They permit to select the color of the line representing
+the plotted serie. Use a value between 0 and 255 (for example, if you
+want to plot a yellow line, set blue=0, red and green=255)<BR><B>Name</B>:
+the name of the component<BR><B>Serie</B>:&nbsp;Indicates what series
+(column) in a multicolumn output pattern is to be displayed <BR><BR>To
+see how to use this component, look at the following figure:<BR><BR><IMG SRC="../../images/multi-series.jpg" NAME="Graphic5" ALIGN=BOTTOM WIDTH=564 HEIGHT=244 BORDER=0><BR><BR>In
+the green box there are two Chart Handles and one Chart component (of
+course the two handles can be attached to different output
+layers).<BR>In this case we want to plot both the TSCO.L daily prices
+and the corresponding 14-days moving average for an interval of 248
+days. To do this, we use a Yahoo Finance input component along with a
+Moving Average plugin (to see how the parameters have been set, open
+the MultiSeries.ser file into the samples/editor/charting/
+directory).<BR>When we run the net, the following multi-series chart
+appears:<BR><BR><IMG SRC="../../images/multi-series-chart.jpg" NAME="Graphic6" ALIGN=BOTTOM WIDTH=569 HEIGHT=363 BORDER=0></P>
+<H3>The VisAD Chart Layer</H3>
+<P><IMG SRC="../../images/VISADCHT1.gif" NAME="Graphic7" ALIGN=BOTTOM WIDTH=25 HEIGHT=24 BORDER=0><BR><BR>This
+component acts like the basic Chart component described above, but
+uses an external graphic library named <A HREF="http://www.ssec.wisc.edu/~billh/visad.html">VisAD</A>
+to plot the chart. To use it, you must download the visad.jar library
+and put it in your classpath.<BR>Its properties are the same of the
+basic Chart component.<BR>The following figure shows how it appears
+when displayed:<BR><BR><IMG SRC="../../images/visadSample.png" NAME="Graphic8" ALIGN=BOTTOM WIDTH=556 HEIGHT=475 BORDER=0><BR><BR>As
+you can see, some of its properties are visible and editable directly
+from within the drawing area, avoiding to open the component's
+property panel to change them.<BR>You can <B>drag the mouse</B> on
+the chart to move it around the drawing area; pressing <B>both the
+two mouse buttons</B> and dragging the mouse, a crossair will appear,
+and the coordinates of the cursor will be shown on the upper left
+corner; you can also press the <B>shift button</B> to zoom in/out the
+chart.<BR><BR>At this first stage od integration, the VisAD chart
+component is used to plot only line charts, as already does the basic
+component, but in the future more and enhanced kind of charts will be
+added to Joone thanks to the infinite possibilities gave by this
+powerful graphic library.<BR><BR><BR>
+</P>
+</BODY>
+</HTML>

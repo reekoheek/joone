@@ -1,0 +1,17 @@
+// Creates a copy of the neural network
+jMon.setExporting(true);
+newNet = jNet.cloneNet();
+jMon.setExporting(false);
+// Cleans the old listeners
+newNet.removeAllListeners();
+// Set all the parameters for the validation
+nnv = new NeuralNetValidator(newNet);
+nnv.addValidationListener((NeuralValidationListener)this);
+nnv.start();  // Validates the net
+
+void netValidated(NeuralValidationEvent e) {
+	// Shows the RMSE at the end of the cycle
+	NN = e.getSource();
+	txt.setText(NN.getMonitor().getGlobalError().toString());
+	fr.pack();
+}

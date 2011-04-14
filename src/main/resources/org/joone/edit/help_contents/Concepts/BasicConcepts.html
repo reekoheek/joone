@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title></title>
+	 	
+  <meta name="GENERATOR" content="OpenOffice.org 1.1.0  (Linux)">
+	
+  <meta name="CREATED" content="20030930;19275600">
+	
+  <meta name="CHANGED" content="20030930;19300700">
+	
+  <style>
+	<!--
+		@page { size: 21.59cm 27.94cm; margin: 2cm }
+		P { margin-bottom: 0.21cm }
+		H2 { margin-bottom: 0.11cm; border-top: none; border-bottom: 1.00pt solid #000000; border-left: none; border-right: none; padding-top: 0cm; padding-bottom: 0.15cm; padding-left: 0cm; padding-right: 0cm }
+		H2.western { font-family: "Arial", sans-serif; font-size: 14pt; font-style: italic }
+		H2.cjk { font-family: "Bitstream Vera Sans"; font-size: 14pt; font-style: italic }
+		H2.ctl { font-family: "Arial", sans-serif; font-size: 14pt; font-style: italic }
+	-->
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+<h1>Basic Concepts</h1>
+<span lang="en-GB">Each neural network (NN) is composed of a number of
+components (<b>layers</b>) connected together by connections (<b>synapses</b>).
+Depending on how these components are connected, several neural network
+architectures can be created (feed forward NN, recurrent NN, etc).</span> <br>
+<span lang="en-GB">This section deals with feed forward neural networks
+(FFNN) for simplicity’s sake, but it is possible to build whatever
+neural network architecture is required with Joone.</span> <br>
+A FFNN is composed of a number of consecutive layers, each one
+connected to the next by a synapse. Recurrent connections from a layer
+to a previous one are not permitted. Consider the following figure:
+<p align="center" style="margin-bottom: 0cm;"><img
+ src="BasicConcepts_html_m73420ac1.gif" name="Object1"
+ style="width: 113px; height: 217px;" title="" alt=""></p>
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm;">This is a
+sample FFNN with two layers connected with one synapse. Each layer is
+composed of a certain number of neurons, each of which have the same
+characteristics (transfer function, learning rate, etc). <br>
+</p>
+A neural net built with Joone can be composed of whatever number of
+layers of different kinds of layer. <br>
+Each layer processes its input signal by applying a transfer function
+and sending the resulting pattern to the synapses that connect it to
+the next layer. So a neural network can process an input pattern,
+transferring it from its input layer to the output layer. <br>
+This is the basic concept upon which the entire engine is based.
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm;"><br>
+</p>
+<h2 class="western">The Transport Mechanism</h2>
+<br>
+<br>
+To ensure that it is possible to build whatever neural network
+architecture is required with Joone, a method to transfer the patterns
+through the net is required without the need of a central point of
+control. <br>
+<span lang="en-GB">To accomplish this goal, each layer of Joone is
+implemented as a <i>Runnable</i> object, so each layer runs
+independently from the other layers (getting the input pattern,
+applying the transfer function to it and putting the resulting pattern
+on the output synapses so that the next layers can receive it,
+processing it and so on) as depicted by the following basic scheme:</span> <br>
+<br>
+<p lang="en-GB" align="center" style="margin-bottom: 0cm;"><img
+ src="BasicConcepts_html_m4938a348.gif" name="Object2"
+ style="width: 259px; height: 146px;" title="" alt=""></p>
+<p lang="en-GB" style="margin-bottom: 0cm;"><br>
+</p>
+<u>Where for each neuron N:</u> <br>
+<span lang="en-GB">X<font size="1" style="font-size: 8pt;">N </font>–<font
+ size="1" style="font-size: 8pt;"> </font>The weighted net input of
+each neuron = (I1 * W<font size="1" style="font-size: 8pt;">N</font>1)
++ … + (I<font size="1" style="font-size: 8pt;">P</font> * W<font size="1"
+ style="font-size: 8pt;">NP</font>)</span> <br>
+<span lang="en-GB">Y<font size="1" style="font-size: 8pt;">N</font> –
+The output value of each neuron = f(X<font size="1"
+ style="font-size: 8pt;">N</font>)</span> <br>
+f(X) – The transfer function (depending on the kind of layer’s property)
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm;"><br>
+</p>
+This transport mechanism is also used to bring the error from the
+output layers to the input layers during the training phases, allowing
+the weights and biases to be changed according to the chosen learning
+algorithm (for example the backprop algorithm). <br>
+In other words, the Layer object alternately ‘pumps’ the input signal
+from the input synapses to the output synapses, and the error pattern
+from the output synapses to the input synapses. <br>
+To accomplish this, each layer has two opposing transport mechanisms,
+one from the input to the output to transfer the input pattern during
+the recall phase, and another from the output to the input to transfer
+the learning error during the training phase, as depicted in the
+following figure:
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm;"><br>
+</p>
+<p align="justify" style="margin-bottom: 0cm;"><img
+ src="BasicConcepts_html_2523ab.gif" name="Object3"
+ style="width: 663px; height: 182px;" title="" alt=""><span lang="en-GB"><br>
+</span></p>
+<span lang="en-GB">Each Joone component (both layers and synapses) has
+its own pre-built mechanisms to adjust the weights and biases according
+to the chosen learning algorithm.</span> <br>
+Complex neural network architectures can be easily built, either linear
+or recursive, because there is no necessity for a global controller of
+the net. <br>
+Imagine each layer acts as a pump that ‘pushes’ the signal (the
+pattern) from its input to its output, where one or more synapses
+connect it to the next layers, regardless of the number, the sequence
+or the nature of the layers connected. <br>
+This is the main characteristic of Joone, guaranteed by the fact that
+each layer runs on its own thread, representing the unique active
+element of a neural network based on the Joone’s core engine. <br>
+Look at the following figure (the arrows represent the synapses):
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm;"><br>
+</p>
+<p lang="en-GB" align="center" style="margin-bottom: 0cm;"><img
+ src="BasicConcepts_html_2aa2699e.gif" name="Object4"
+ style="width: 617px; height: 278px;" title="" alt=""></p>
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm;"><br>
+</p>
+In this manner any kind of neural networks architecture can be built.<br>
+<br>
+To build a neural network, simply connect each layer to another as
+required using a synapse, and the net will run without problems. Each
+layer (running in its own thread) will read its input, apply the
+transfer function, and write the result in its output synapses, to
+which there are other layers connected running on separate threads, and
+so on.
+<p
+ style="border-style: solid none; border-width: 1px medium; border-top: 1px solid rgb(0, 0, 0); border-bottom: 1px solid rgb(0, 0, 0); padding: 0,04cm 0cm; margin-bottom: 0cm;"> <span
+ lang="en-GB"><b>Joone allows any kind of net to be built through its
+modular architecture, like a LEGO<sup>©</sup></b><b> bricks system!</b></span></p>
+<br>
+By this means:
+<ul>
+	<li><span lang="en-GB"><b>The 	engine is flexible</b>: you can build
+any architecture you want 	simply by connecting each layer to another
+with a synapse, without 	being concerned about the architecture. Each
+layer will run 	independently, processing the signal on its input and
+writing the 	results to its output, where the connected synapses will
+transfer 	the signal to the next layers, and so on. </span> 	 	</li>
+  <li><span lang="en-GB"><b>The 	engine is scalable</b>: if you need
+more computation power, simply 	add more CPU to the system. Each layer,
+running on a separated 	thread, will be processed by a different CPU,
+enhancing the speed of 	the computation. </span> 	 	</li>
+  <li><span lang="en-GB"><b>The 	engine closely mirrors reality</b>:
+conceptually, the net is not far 	from a real system (the brain), where
+each neuron works 	independently from each other without a global
+control system.</span> </li>
+</ul>
+<p lang="en-GB" align="justify" style="margin-bottom: 0cm;"><br>
+</p>
+</body>
+</html>

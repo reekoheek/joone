@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title></title>
+  <meta name="GENERATOR" content="OpenOffice.org 1.1.0  (Linux)">
+  <meta name="CREATED" content="20030831;23304600">
+  <meta name="CHANGED" content="20030831;23305900">
+  <style>
+	<!--
+		H2 { margin-left: 0.3cm; margin-bottom: 0.11cm }
+		H2.western { font-family: "Arial", sans-serif; font-size: 14pt; so-language: en-US; font-style: italic }
+		H2.cjk { font-family: "Bitstream Vera Sans"; font-size: 14pt; font-style: italic }
+		H2.ctl { font-family: "Arial", sans-serif; font-size: 14pt; font-style: italic }
+		H3 { margin-bottom: 0.11cm }
+		H3.western { font-family: "Arial", sans-serif; font-size: 13pt; so-language: en-US }
+		H3.cjk { font-family: "Bitstream Vera Sans"; font-size: 13pt }
+		H3.ctl { font-family: "Arial", sans-serif; font-size: 13pt }
+	-->
+	</style>
+</head>
+<body dir="ltr" lang="en-US">
+<h1 style="page-break-before: always;" align="left">Plugins</h1>
+There are three types of pre-processing plugins for the input data, and
+two monitor plugins. A connection to a plugin can be added by dragging
+an arrow from the magenta square handle on the bottom side of an input
+layer, as depicted in the following figure:
+<p style="margin-bottom: 0cm;" align="left"><img
+ src="Plugins_html_5974fa75.gif" name="Object20" align="bottom"
+ height="163" width="130"></p>
+<h2 class="western" align="left" lang="en-GB">Pre-Processing Plugins</h2>
+<p style="margin-bottom: 0cm;" align="left"><span lang="en-GB">There
+are four pre-processing plugins implemented, but others can be
+implemented by extending the <font size="2"><font
+ face="Courier New, monospace">org.joone.util.ConverterPlugIn</font></font>
+class:</span></p>
+<p style="margin-bottom: 0cm;" align="left" lang="en-GB"><br>
+</p>
+<table border="0" cellpadding="7" cellspacing="0" width="603">
+  <col width="189"> <col width="386"> <tbody>
+    <tr valign="top">
+      <td width="189">
+      <p align="left" lang="fr-FR"><b>Centre on Zero</b></p>
+      </td>
+      <td width="386">
+      <p align="left" lang="en-GB">This plugin centres the entire data
+set around the zero axis by subtracting the average value.</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="189">
+      <p align="left" lang="en-GB"><b>Normalizer</b></p>
+      </td>
+      <td width="386">
+      <p align="left"><span lang="en-GB">This plugin can normalize an
+input data stream within a range determined by its <i>min</i> and <i>max</i>
+parameters.</span></p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="189">
+      <p align="left" lang="en-GB"><b>Turning Points Extractor</b></p>
+      </td>
+      <td width="386">
+      <p align="left" lang="en-GB">This plugin extracts the turning
+points of a time series, generating a useful input signal for a neural
+net, emphasising the relative max and min of a time series (very useful
+to extract buy and sell instants for stock forecasting). Its
+minChangePercentage parameter indicates what the minimum change around
+a turning point should be to consider it a real change of direction of
+the time series. Setting this parameter to a relative high value helps
+to reject the noise of the input data.</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><b>Moving Average</b><br>
+      </td>
+      <td valign="top">This plugin calculates the
+moving average of a time series for a predefined interval of samples.
+Very useful to feed a neural network that must be trained to forecast a
+time series.<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span lang="en-GB"></span><b>DeltaNormPlugin</b></td>
+      <td style="vertical-align: top;">
+      <p style="margin-bottom: 0mm;" align="justify"><span lang="en-GB">This
+plugin serves </span><b></b><span lang="en-GB"> to feed a network with
+the normalized 'delta' values of a time series. Used along with the
+TurningPointExtractor plugin is very useful to make time series
+predictions.&nbsp;</span> </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><b>ShufflePlugin</b></td>
+      <td style="vertical-align: top;">
+      <p style="margin-bottom: 0mm;" align="justify" lang="en-GB">This
+plugin 'shuffles' the order of the input patterns at
+each epoch.<br>
+      </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><b>BinaryPlugin</b></td>
+      <td style="vertical-align: top;">
+      <p style="margin-bottom: 0mm;" align="justify" lang="en-GB">This
+plugin is able to convert the input values to binary format</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p style="margin-bottom: 0cm;" align="left" lang="en-GB"></p>
+<span lang="en-GB"><br>
+Every plugin has a common parameter named <i>serie</i>.
+This indicates what series (column) in a multicolumn input data is to
+be affected (0 = all series).</span> <br>
+A plugin can be attached to an input layer, or to another plugin so
+that pre-processing modules can be cascaded. <br>
+If both centre on zero and normalize processing is required for an
+input stream, the centre on zero plugin can be connected to a file
+input
+layer, and then a normalizer plugin attached to this, as shown in the
+following figure:
+<p style="margin-bottom: 0cm;" align="left"><img
+ src="Plugins_html_m13fbe1c4.gif" name="Object21" align="bottom"
+ height="233" width="234"></p>
+<h2 class="western" align="left" lang="en-GB">Monitor Plugins</h2>
+There are also two Monitor Plugins. These are useful for dynamically
+controlling the behaviour of control panel parameters (parameters
+contained in the org.joone.engine.Monitor object). <br>
+<br>
+<span lang="en-GB">The <b>Linear Annealing</b> plugin changes the
+values of the learning rate (LR) and the momentum parameters linearly
+during training. The values vary from an initial value to a final value
+linearly, and the step is determined by the following formulas:</span> <br>
+<br>
+<span style="font-family: monospace;">step = (FinalValue - InitValue) /
+numberOfEpochs</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">LR = LR – step</span><span
+ style="font-family: monospace;"> </span><br
+ style="font-family: monospace;">
+<br>
+<span lang="en-GB">The <b>Dynamic Annealing </b>plugin controls the
+change of the learning rate based on the difference between the last
+two global error (E) values as follows:</span> <br>
+<br>
+<span style="font-family: monospace;">If E(t) &gt; E(t-1) then LR = LR
+* (1 - step/100%). </span><br style="font-family: monospace;">
+<span style="font-family: monospace;"> If E(t) &lt;= E(t-1) then LR
+remains unchanged.</span><span style="font-family: monospace;"> </span><br>
+<br>
+The ‘rate’ parameter indicates how many epochs occur between an
+annealing change. These plugins are useful to implement the annealing
+(hardening) of a neural network, changing the learning rate during the
+training process. <br>
+<br>
+With the Linear Annealing plugin, the LR starts with a large value,
+allowing the network to quickly find a good minimum, and then the LR
+reduces permitting the found minimum to be fine tuned toward the best
+value, with little the risk of escaping from a good minimum by a large
+LR. <br>
+<br>
+The Dynamic Annealing plugin is an enhancement to the Linear concept,
+reducing the LR only as required, when the global error of the neural
+net augments are larger (worse) than the previous step’s error. This
+may at first appear counter-intuitive, but it allows a good minimum to
+be found quickly and then helps to prevent its loss.
+<h3 class="western" style="page-break-before: always;" align="left">The
+Annealing Concept</h3>
+<p style="margin-bottom: 0cm;" align="left"><br>
+</p>
+<p style="margin-bottom: 0cm;" align="left"><a name="_1075045221"></a><a
+ name="_1074354963"></a><a name="_1074354051"></a><a name="_1074353602"></a>
+<img src="Plugins_html_4b95fc21.gif" name="Object22"
+ style="width: 476px; height: 281px;" title="" alt="annealing"></p>
+<br>
+<br>
+To explain why the learning rate has to diminish as the error
+increases, look at the above figure: <br>
+<br>
+All the weights of a network represent an error surface of n-dimensions
+(for simplicity, in the figure there are only two dimensions). To train
+a network means to modify the connection weights so as to find the best
+group of values that give the minimum error for certain input patterns.
+<br>
+<br>
+In the above figure, the red ball represents the actual error. It
+‘runs’ on the error surface during the training process, approaching
+the minimum error. Its velocity is proportionate to the value of the
+learning rate, so if this velocity is too high, the ball can overstep
+the absolute minimum and become trapped in a relative minimum. <br>
+<br>
+To avoid this side effect, the velocity (learning rate) of the ball
+needs to be reduced as the error becomes worse (the grey ball).
+</body>
+</html>

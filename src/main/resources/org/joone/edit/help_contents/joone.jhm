@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE map
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/map_1_0.dtd">
+
+<map version="1.0">
+	<mapID target="top" url="introduction/introduction.html" />
+	<mapID target="ht.basic" url="Tutorial/Basic.html" />
+	<mapID target="ht.how_create_simple_network" url="Tutorial/how_create_simple_network.html" />
+	<mapID target="ht.how_save_open_network" url="Tutorial/how_save_open_network.html" />
+	<mapID target="ht.how_teach_network" url="Tutorial/how_teach_network.html" />
+	<mapID target="ht.how_run_network" url="Tutorial/how_run_network.html" />
+	<mapID target="ht.som_tutorial" url="Tutorial/SOMTutorial/SomImageTutorial.html" />
+	
+	<mapID target="ri.development_pane" url="reference_information/development_pane.html" />
+	<mapID target="ri.menu.menu_usage" url="reference_information/Menu/Menu.html" />
+	<mapID target="ri.menu.file" url="reference_information/Menu/File.html" />
+	<mapID target="ri.menu.edit" url="reference_information/Menu/Edit.html" />
+	<mapID target="ri.menu.align" url="reference_information/Menu/Align.html" />
+	<mapID target="ri.menu.macro" url="reference_information/Menu/MacroEditor.html" />
+	<mapID target="ri.menu.tools" url="reference_information/Menu/Tools.html" />
+	<mapID target="ri.menu.look_n_feel" url="reference_information/Menu/Look_Feel.html" />
+	<mapID target="ri.menu.help" url="reference_information/Menu/Help.html" />
+	
+	<mapID target="ri.toolbar.palettes" url="reference_information/Toolbar/Palettes.html" />
+	<mapID target="ri.toolbar.drawingpalette" url="reference_information/Toolbar/DrawingPalette.html" />
+	<mapID target="ri.toolbar.processingelements" url="reference_information/Toolbar/ProcessingElements.html" />
+	<mapID target="ri.toolbar.layers" url="reference_information/Toolbar/Layers.html" />
+	<mapID target="ri.toolbar.synapses" url="reference_information/Toolbar/Synapses.html" />
+	<mapID target="ri.toolbar.charting" url="reference_information/Toolbar/Charting.html" />
+	<mapID target="ri.toolbar.plugins" url="reference_information/Toolbar/Plugins.html" />
+	
+	<mapID target="ri.advanced.xmlprops" url="reference_information/Advanced/XMLProperties.html" />
+
+	<mapID target="co.basic.concepts" url="Concepts/BasicConcepts.html" />
+	<mapID target="co.basic.pe" url="Concepts/ProcessingElements.html" />
+	<mapID target="co.basic.syn" url="Concepts/Synapses.html" />
+	<mapID target="co.basic.io" url="Concepts/I_O_Elements.html" />
+	<mapID target="co.basic.plugins" url="Concepts/Plugins.html" />
+	
+	<mapID target="rs.links" url="Resources/Links.html" />
+	<mapID target="rs.glossary" url="Resources/Glossary.html" />
+</map>

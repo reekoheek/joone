@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title></title>
+	 	
+  <meta name="GENERATOR" content="OpenOffice.org 1.1.0  (Linux)">
+	
+  <meta name="CREATED" content="20030831;23135400">
+	
+  <meta name="CHANGED" content="20030831;23142500">
+	
+  <style>
+	<!--
+		H3 { margin-bottom: 0.11cm }
+		H3.western { font-family: "Arial", sans-serif; font-size: 13pt; so-language: en-US }
+		H3.cjk { font-family: "Bitstream Vera Sans"; font-size: 13pt }
+		H3.ctl { font-family: "Arial", sans-serif; font-size: 13pt }
+		H4 { margin-bottom: 0.11cm }
+		H4.western { font-family: "Bitstream Vera Serif", serif; font-size: 14pt; so-language: en-US }
+		H4.cjk { font-family: "Bitstream Vera Sans"; font-size: 14pt }
+		H4.ctl { font-family: "Lucidasans"; font-size: 14pt }
+	-->
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+<h1>Macro Editor</h1>
+<p align="left" style="margin-bottom: 0cm;">A powerful scripting
+management engine is provided in the Joone Editor. Before describing
+this feature,  it is important to understand the concepts underlying the
+scripting engine.<br>
+<br>
+</p>
+There are two types of script in Joone:
+<p align="left" style="margin-bottom: 0cm;"><br>
+</p>
+<table width="603" border="0" cellpadding="7" cellspacing="0">
+	<col width="140"> 	<col width="435"> 	<tbody>
+    <tr valign="top">
+		<td width="140"> 			
+      <p align="left"><i>Event-driven scripts</i></p>
+		</td>
+		<td width="435"> 			
+      <p align="left">These are executed when a neural network’s
+			event is raised.</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="140"> 			
+      <p align="left"><i>User-driven scripts</i></p>
+		</td>
+		<td width="435"> 			
+      <p align="left">These are executed manually by the user.</p>
+		</td>
+	</tr>
+  </tbody>
+</table>
+<p align="left" style="margin-bottom: 0cm;"><br>
+</p>
+<p align="left" style="margin-bottom: 0cm;">Both of the above type of
+scripts are contained within the neural network, and are serialized,
+stored and transported along with the neural network that contains them
+(in the same way that macros defined in a MS Word<sup>©</sup> of Excel<sup>©</sup>
+document are). In this manner the defined scripts can be executed even
+when the net is running on remote machines outside the GUI editor.</p>
+<p align="left" style="margin-bottom: 0cm;">It is possible to load,
+edit, save and run any script (in this document also referred to as
+Macro) using a user friendly graphical interface. The Macro Editor can
+be opened with the Control<font face="Wingdings">-&gt;</font>Macro
+Editor menu item. A window will be shown, as depicted in the following
+figure:</p>
+<p align="left" style="margin-bottom: 0cm;"><br>
+</p>
+<p style="margin-bottom: 0cm;"><img src="MacroEditor_html_6c673ba1.gif"
+ name="Object3" align="bottom" width="588" height="383"></p>
+<p align="left" style="margin-bottom: 0cm;">In the Macro Editor, the
+user can define both of the two script types. On the left side of the
+editor there is the list of the available scripts for the neural
+network. For a new network, the list already contains the definitions of
+all the available <i>event-driven</i> scripts. To edit a script, the
+user simply clicks on the desired script on the list and inserts the
+code in the text area on the right.</p>
+<p align="left" style="margin-bottom: 0cm;"><br>
+</p>
+<p align="left" style="margin-bottom: 0cm;">The text area has some
+useful features to help with the writing of the BeanShell code:</p>
+<ul>
+	<li>Coloured code based 	on the Java syntax (comments, keywords,
+literals, etc.) 	</li>
+  <li>Highlighting of 	matching opening/closing brackets and
+parenthesise. 	</li>
+  <li>Highlighting of the 	current edited row of code. 	</li>
+  <li>Different colours 	used to emphasize unclosed strings. </li>
+</ul>
+<p align="left" style="margin-bottom: 0cm;"><br>
+</p>
+<p align="left" style="margin-bottom: 0cm;"><img
+ src="MacroEditor_html_16bd85ef.gif" name="Object4" align="bottom"
+ hspace="1" vspace="1" width="564" height="261"></p>
+<p align="left" style="margin-bottom: 0cm;"><br>
+</p>
+<p align="left" style="margin-bottom: 0cm;">Note in the above figure
+the bold Java keywords “<b>new</b>” and “<b>for</b>”, the small box
+indicating the corresponding open bracket matching the one near to the
+cursor, the greyed row indicating the current edited row, and the red
+colour used to indicate an unterminated string.<br>
+<br>
+The <i>event-driven</i> scripts can not be renamed nor deleted from the
+list. If the user does not want to define an <i>event-driven</i>
+script, s/he can just remove or comment the corresponding code in the
+text area.</p>
+<p align="left" style="margin-bottom: 0cm;">The <i>user-driven</i>
+scripts can be added, renamed or deleted by choosing the corresponding
+menu item in the ‘Macro’ menu.</p>
+<h4 class="western">The Macro Editor Menu</h4>
+<p align="left" style="margin-bottom: 0cm;">Here are details of all the
+menu items of the Macro Editor frame.</p>
+<p align="left" style="margin-bottom: 0cm;"><br>
+</p>
+<p align="left" style="margin-bottom: 0cm;"><b>File</b></p>
+<p align="left"
+ style="margin-left: 5,08cm; text-indent: -3,83cm; margin-bottom: 0cm;"> <b>Import
+Macro	</b>The content of a text file can be imported into the text area
+of the selected script. The old text will be replaced.</p>
+<p align="left"
+ style="margin-left: 5,08cm; text-indent: -3,83cm; margin-bottom: 0cm;"> <b>Save
+Macro as…	</b>The content of the selected script can be exported into a
+text file.</p>
+<p align="left"
+ style="margin-left: 5,08cm; text-indent: -3,83cm; margin-bottom: 0cm;"> <b>Close	</b>Closes
+the Macro Editor window.</p>
+<p align="left" style="margin-left: 1,25cm; margin-bottom: 0cm;"><br>
+</p>
+<p align="left" style="margin-bottom: 0cm;"><b>Edit</b></p>
+<p align="left"
+ style="margin-left: 5,08cm; text-indent: -3,83cm; margin-bottom: 0cm;"> <b>Cut	</b>Copies
+the selected text into the clipboard and delete it from the text area
+(you can also use Ctrl-X).</p>
+<p align="left"
+ style="margin-left: 5,08cm; text-indent: -3,83cm; margin-bottom: 0cm;"> <b>Copy	</b>Copies
+the selected text into the clipboard (you can also use Ctrl-C).</p>
+<p align="left"
+ style="margin-left: 5,08cm; text-indent: -3,83cm; margin-bottom: 0cm;"> <b>Paste	</b>Pastes
+the content of the clipboard into the text area starting at the cursor
+position (you can also use Ctrl-V).</p>
+<p align="left"
+ style="margin-left: 5,08cm; text-indent: -3,83cm; margin-bottom: 0cm;"> <b>Select
+All	</b>Selects all the content of the text area.</p>
+<p align="left" style="margin-left: 1,25cm; margin-bottom: 0cm;"><br>
+</p>
+<p align="left" style="margin-bottom: 0cm;"><b>Macro</b></p>
+<p align="left"
+ style="margin-left: 5,08cm; text-indent: -3,83cm; margin-bottom: 0cm;"> <b>Enable
+Scripting	</b>If checked, this enables the execution of the <i>event-driven</i>
+scripts for the edited neural network. If not checked, all the events of
+the net will be ignored.</p>
+<p align="left"
+ style="margin-left: 5,08cm; text-indent: -3,83cm; margin-bottom: 0cm;"> <b>Add	</b>Adds
+a new <i>user-driven</i> script (the user cannot insert new <i>event-driven</i>
+scripts).</p>
+<p align="left"
+ style="margin-left: 5,08cm; text-indent: -3,83cm; margin-bottom: 0cm;"> <b>Remove	</b>Removes
+the selected <i>user-driven</i> script. Disabled for <i>event-driven</i>
+scripts.</p>
+<p align="left"
+ style="margin-left: 5,08cm; text-indent: -3,83cm; margin-bottom: 0cm;"> <b>Rename	</b>Permits
+renaming of the selected <i>user-driven</i> script. Disabled for <i>event-driven</i>
+scripts.</p>
+<p align="left"
+ style="margin-left: 5,08cm; text-indent: -3,83cm; margin-bottom: 0cm;"> <b>Run	</b>Runs
+the selected script.</p>
+<p align="left"
+ style="margin-left: 5,08cm; text-indent: -3,83cm; margin-bottom: 0cm;"> <b>Set
+Rate…	</b>Sets the execution rate (the number of free training cycles
+between two execution calls) for <i>cyclic</i> <i>event-driven</i>
+scripts. The <i>cyclic</i> <i>event-driven</i> scripts are the
+‘cycleTerminated’ and the ‘errorChanged’ scripts. </p>
+<p align="left" style="margin-left: 5,08cm; margin-bottom: 0cm;"><b>Warning:</b>The
+default value of rate for a new network is 1 (one), but it is
+recommended tat the value be set to between 10 and 100 (or even more) to
+ensure that there is sufficient processing time available for  the
+running of neural network.</p>
+<h4 class="western" style="page-break-before: always;"> Macro Scripting
+Features</h4>
+<p align="left" style="margin-bottom: 0cm;">The following section
+describes some characteristics of the scripting feature added to Joone’s
+engine.</p>
+<p align="left" style="margin-bottom: 0cm;"><br>
+</p>
+<p align="left" style="margin-bottom: 0cm;"><b>How to use internal
+Joone objects</b></p>
+<p align="left" style="margin-bottom: 0cm;">To obtain a reference to
+the internal neural network’s objects use:</p>
+<ul>
+	<li>
+    <p align="left" style="margin-bottom: 0cm;"><b>jNet</b> to 	access
+to the edited <font size="2"><font face="Courier New, monospace">org.joone.net.NeuralNet</font></font>
+	object</p>
+	</li>
+  <li>
+    <p align="left" style="margin-bottom: 0cm;"><b>jMon</b> to 	access
+to the contained <font size="2"><font face="Courier New, monospace">org.joone.engine.Monitor</font></font>
+	object</p>
+  </li>
+</ul>
+<p align="left" style="margin-bottom: 0cm;"><br>
+</p>
+<p align="left" style="margin-bottom: 0cm;">For example:</p>
+<ul>
+	<li>
+    <p align="left" style="margin-bottom: 0cm;"><font size="2"><font
+ face="Courier New, monospace"><b>jNet</b>.getLayers().size()</font></font>	returns
+	the number of the layers contained in the neural network.</p>
+	</li>
+  <li>
+    <p align="left" style="margin-bottom: 0cm;"><font size="2"><font
+ face="Courier New, monospace"><b>jMon</b>.getGlobalError()</font></font>	returns
+	the last RMSE value from the net.</p>
+  </li>
+</ul>
+<p align="left" style="margin-bottom: 0cm;"><br>
+</p>
+<p align="left" style="margin-bottom: 0cm;">A list of the callable
+public methods for the above two objects is available in the project’s
+javadoc html files. To use the objects from the Joone libraries, it is
+not necessary to import the corresponding package. The following
+packages are imported automatically for you by the script’s engine:</p>
+<p align="left" style="margin-bottom: 0cm;"><br>
+</p>
+<font style="font-family: monospace;"><font size="2"><b>org.joone.engine.*</b></font></font><span
+ style="font-family: monospace;"> </span><br
+ style="font-family: monospace;">
+<font style="font-family: monospace;"><font size="2"><b>	org.joone.engine.learning.*;</b></font></font><span
+ style="font-family: monospace;"> </span><br
+ style="font-family: monospace;">
+<font style="font-family: monospace;"><font size="2"><b>org.joone.edit.*</b></font></font><span
+ style="font-family: monospace;"> </span><br
+ style="font-family: monospace;">
+<font style="font-family: monospace;"><font size="2"><b>org.joone.util.*</b></font></font><span
+ style="font-family: monospace;"> </span><br
+ style="font-family: monospace;">
+<font style="font-family: monospace;"><font size="2"><b>org.joone.net.*</b></font></font><span
+ style="font-family: monospace;"> </span><br
+ style="font-family: monospace;">
+<font style="font-family: monospace;"><font size="2"><b>org.joone.io.*</b></font></font><span
+ style="font-family: monospace;"> </span><br
+ style="font-family: monospace;">
+<font style="font-family: monospace;"><font size="2"><b>	org.joone.script.*;</b></font></font> <br>
+<p align="left" style="margin-bottom: 0cm;">For instance, to create a
+new sigmoid layer, simply write:</p>
+<p align="left" style="margin-left: 1,25cm; margin-bottom: 0cm;"><font
+ size="2"><font face="Courier New, monospace">newLayer = <b>new</b>
+SigmoidLayer();</font></font></p>
+<p align="left" style="margin-bottom: 0cm;"><b>How to call another
+script from within a macro</b></p>
+<p align="left" style="margin-bottom: 0cm;">Within a macro it is
+possible to call another script contained in the neural network (both <i>user</i>
+and <i>event-driven</i> scripts).<br>
+<br>
+To do this, use the following code:</p>
+<div style="margin-left: 40px;"><font size="2"><font
+ face="Courier New, monospace">name = “<i>NameOfTheMacroToCall</i>”;</font></font> <br>
+<font size="2"><font face="Courier New, monospace">macro = <b>jNet</b>.getMacroPlugin().getMacroManager().getMacro(name);</font></font> <br>
+<font face="Courier New, monospace"><font size="2">eval(macro);</font></font></div>
+<p align="left" style="margin-bottom: 0cm;"><b>The scope of the
+script’s variables</b></p>
+<p align="left" style="margin-bottom: 0cm;">All the scripts defined in
+a neural network (both <i>user</i> and <i>event-driven</i> scripts)
+share the same namespace and actual-values storage. Thus a global
+variable declared and initialised in <i>script_A</i> can be accessed in <i>script_B.</i><br>
+<br>
+For example:<br>
+<br>
+</p>
+<ol>
+  <li>Add a macro named 	‘macro1’ and insert into it the code: <font
+ size="2"><font face="Courier New, monospace">myVariable 	= 5;</font></font>
+	</li>
+  <li>Add a macro named 	‘macro2’ and insert into it the code: <font
+ size="2"><font face="Courier New, monospace">print(“The 	value is: “+
+myVariable);</font></font> </li>
+  <li>Run first the macro1 and then the macro2; you will see into the
+standard output console the result: “<font size="2"
+ style="font-family: monospace;">The value is: 5</font>”<br>
+  </li>
+</ol>
+<p align="left" style="margin-bottom: 0cm;">For further details about
+scope and the use of variables, see the BeanShell manual.</p>
+<p align="left" style="margin-bottom: 0cm;"><br>
+</p>
+</body>
+</html>

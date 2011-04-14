@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='ISO-8859-1'  ?>
+<!DOCTYPE toc
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/toc_1_0.dtd">
+
+<toc version="1.0">
+
+<tocitem text="Joone Editor User's Guide" image="openbook">
+   <tocitem text="Introduction" target="top"/>
+
+   <tocitem text="Tutorial">
+       <tocitem text="My first neural network" target="ht.basic"/>
+       <tocitem text="How to Create a Simple Network" target="ht.how_create_simple_network"/>
+       <tocitem text="How to Save and Open a Network" target="ht.how_save_open_network"/>
+       <tocitem text="How to Teach a Network" target="ht.how_teach_network"/>
+       <tocitem text="How to Run a Network" target="ht.how_run_network"/>
+       <tocitem text="How to Create a Character Recognizer using a SOM">
+       		<tocitem text="Image Recognition Tutorial" target="ht.som_tutorial"/>
+       </tocitem>
+   </tocitem>
+
+   <tocitem text="Reference Information">
+       <tocitem text="Development Pane" target="ri.development_pane"/>
+
+       <tocitem text="Menu">
+           <tocitem text="Menu Usage" target="ri.menu.menu_usage"/>
+           <tocitem text="File" target="ri.menu.file"/>
+           <tocitem text="Edit" target="ri.menu.edit"/>
+           <tocitem text="Align" target="ri.menu.align"/>
+           <tocitem text="Tools" target="ri.menu.tools"/>
+           <tocitem text="The Macro Editor" target="ri.menu.macro"/>
+           <tocitem text="Window" target="ri.menu.look_n_feel"/>
+           <tocitem text="Help" target="ri.menu.help"/>
+       </tocitem>
+
+       <tocitem text="ToolBar">
+           <tocitem text="Palette" target="ri.toolbar.palettes"/>
+           <tocitem text="Drawing Tools" target="ri.toolbar.drawingpalette"/>
+           <tocitem text="Processing Elements" target="ri.toolbar.processingelements"/>
+           <tocitem text="Layers" target="ri.toolbar.layers"/>
+           <tocitem text="Synapses" target="ri.toolbar.synapses"/>
+           <tocitem text="Charting" target="ri.toolbar.charting"/>
+           <tocitem text="Plugins" target="ri.toolbar.plugins"/>
+       </tocitem>
+   </tocitem>
+   <tocitem text="Advanced">
+       <tocitem text="Custimizing the toolbar" target="ri.advanced.xmlprops"/>
+   </tocitem>
+   <tocitem text="Concepts">
+       <tocitem text="Overview" target="co.basic.concepts"/>
+       <tocitem text="Processing Elements" target="co.basic.pe"/>
+       <tocitem text="Synapses" target="co.basic.syn"/>
+       <tocitem text="I/O Elements" target="co.basic.io"/>
+       <tocitem text="Plugins" target="co.basic.plugins"/>
+   </tocitem>
+   <tocitem text="Resources">
+       <tocitem text="Links" target="rs.links"/>
+       <tocitem text="Glossary" target="rs.glossary"/>
+   </tocitem>
+</tocitem>
+</toc>

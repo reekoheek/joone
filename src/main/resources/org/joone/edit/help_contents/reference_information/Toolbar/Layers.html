@@ -1,0 +1,892 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>Layers</title>
+  <meta name="GENERATOR" content="OpenOffice.org 1.1.0  (Linux)">
+  <meta name="CREATED" content="20040613;20135100">
+  <meta name="CHANGED" content="20040613;20175700">
+</head>
+<body dir="ltr" lang="en-US">
+<h1>Layers</h1>
+<p>Neural networks can be built up by connecting various layers
+together. There a six main types of layers, these are Input Layers,
+Input Layer Switches, Neural Network Layers, Output Layer Swtiches,
+Output Layers and the Teacher Layer. </p>
+<p>Input Layers : <img src="../../../../images/FILEIN1.gif"
+ name="Immagine1" alt=" File Input Layer Icon " align="bottom"
+ border="0" height="24" width="24">
+<img src="../../../../images/URLIN1.gif" name="Immagine2"
+ alt=" URL Input Layer Icon " align="bottom" border="0" height="24"
+ width="24"><img src="../../../../images/XLSIN1.gif" name="Immagine3"
+ alt=" XLS Input Layer Icon " align="bottom" border="0" height="24"
+ width="24"><img src="../../../../images/JDBCIN1.gif" name="Immagine4"
+ alt=" JDBC Input Layer Icon " align="bottom" border="0" height="24"
+ width="24"><img src="../../../../images/YFIN1.gif" name="Immagine5"
+ alt=" Yahoo Finance Input Layer Icon " align="bottom" border="0"
+ height="24" width="24"></p>
+<p>Input Switches : <img src="../../../../images/LEARNSWITCH1.gif"
+ name="Immagine6" alt=" Learning Swtich Layer Icon " align="bottom"
+ border="0" height="24" width="24">
+<img src="../../../../images/SWITCH1.gif" name="Immagine7"
+ alt=" Input Swtich Layer Icon " align="bottom" border="0" height="24"
+ width="24">&nbsp;<img alt="InputConnector"
+ src="../../../../images/INCONN1.gif" style="width: 24px; height: 24px;">
+</p>
+<p>Neural Network Layers : <img src="../../../../images/LINEAR1.gif"
+ name="Immagine8" alt="Linear Layer Icon " align="bottom" border="0"
+ height="24" width="24">
+<img src="../../../../images/SIGMOID1.gif" name="Immagine9"
+ alt="Sigmoid Layer Icon " align="bottom" border="0" height="24"
+ width="24"><img src="../../../../images/TANH1.gif" name="Immagine10"
+ alt="TanH Layer Icon " align="bottom" border="0" height="24" width="24"><img
+ alt="sine layer" src="../../../../images/SINELAYER1.gif"
+ style="width: 24px; height: 24px;"><img
+ src="../../../../images/LOG1.gif" name="Immagine11"
+ alt="LOG Layer Icon " align="bottom" border="0" height="24" width="24"><img
+ src="../../../../images/DELAY1.gif" name="Immagine12"
+ alt="Delay Layer Icon " align="bottom" border="0" height="24"
+ width="24"><img src="../../../../images/CONTEXT1.gif" name="Immagine13"
+ alt="Context Layer Icon " align="bottom" border="0" height="24"
+ width="24"><img src="../../../../images/NESTEDNN1.gif"
+ name="Immagine14" alt="Nested ANN Layer Icon " align="bottom"
+ border="0" height="24" width="24"><img
+ src="../../../../images/WTALAYER1.gif" name="Immagine15"
+ alt="Winner Takes All Layer Icon " align="bottom" border="0"
+ height="24" width="24"><img src="../../../../images/GAUSLAYER1.gif"
+ name="Immagine16" alt="Gaussian Layer Icon " align="bottom" border="0"
+ height="24" width="24">&nbsp;
+</p>
+<p>Output Layer Switches : <img src="../../../../images/SWITCHOUT1.gif"
+ name="Immagine17" alt="Out Swtich Layer Icon " align="bottom"
+ border="0" height="24" width="24">
+</p>
+<p>Output Layers : <img src="../../../../images/FILEOUT1.gif"
+ name="Immagine18" alt="File Output Layer Icon " align="bottom"
+ border="0" height="24" width="24">
+<img src="../../../../images/XLSOUT1.gif" name="Immagine19"
+ alt="XLS Output Layer Icon " align="bottom" border="0" height="24"
+ width="24"><img src="../../../../images/JDBCOUT1.gif" name="Immagine46"
+ alt="JDBC Output Layer Icon " align="bottom" border="0" height="24"
+ width="24"></p>
+<p>Teacher : <img src="../../../../images/TEACH1.gif" name="Immagine20"
+ alt="Teacher Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+</p>
+<p><br>
+<br>
+</p>
+<p>Layers can be connected to each other by clicking on the layer to
+connect from, showing a blue circle, and dragging a line from that
+circle to the layer to be connected to. </p>
+<p>Not all types of layer can connect to all others. For example a
+file input layer cannot connect directly to a file output layer. </p>
+<p>Making a connection connects all the rows of the first layer to
+all the rows of the second. </p>
+<p><img src="../../images/layer_connections.jpg" name="Immagine21"
+ alt="Sample Image" align="bottom" border="0" height="100" width="320">
+</p>
+<p>When a layer is selected, the user, pressing the mouse right
+button, can select the 'properties' item on the appearing popup menu,
+so a properties page displays, allowing the layer to be configured. </p>
+<p><img src="../../images/properties.jpg" name="Immagine22"
+ align="bottom" border="0" height="119" width="300">
+</p>
+<p>In the toolbar there are several buttons shown above, representing
+two main types of layer, these are supervised layers and
+unsupervised.</p>
+<p>Note : Users should not mix, unsupervised and supervised network
+elements. Doing so will result in unspecified behaviour and your
+network will be useless. On the other hand you may first train an
+unsupervised network and embed it into the start of supervised i.e
+behind the supervised components. You can do this by exporting the
+unsupervised network after training and loading it into a Nested ANN
+component. This component must be placed before any supervised
+components i.e immediately after the input synapse. </p>
+<p><br>
+<br>
+</p>
+<h2>Input Layers</h2>
+<h3>Common Input Layer Properties</h3>
+<p>Some input synapses are derived from a basic object called a
+stream input synapse. These input synapses have several common
+properties that can be specified. The following synapses are stream
+input synapses ...</p>
+<p><i>File Input</i></p>
+<p><i>URL Input</i></p>
+<p><i>Excel Input</i></p>
+<p><i>JDBC Input</i></p>
+<p><i>YahooFinance Input</i></p>
+<br>
+<p>These synapses have the following common properties ...</p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Advanced Column Selector</b> The
+advanced column selector specifies what columns from the input source
+should be presented the next layer. For example if a file input
+contained 4 columns you could specify that columns 1 and 3 be presented
+to the next layer. The selector must be list of one or a comma
+delimeted list of multiple options. The options can be one column '2'
+or a range of columns '3-6'. The format for the selector is as follows
+... <br>
+[col]{,[col]{,[col1-col2]}} <br>
+For example if the input source has 5 columns and you would like column
+1 and columns 3,4,5 you could specify the selector as '1,2-5' or
+'1,2,3,4,5'. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Name</b> The name of the layer as
+displayed on the development pane. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>LastCol</b> This property has
+been deprecated in this release. Ensure you now use the Advanced Column
+Selector instead. The last column of data that contains useful
+information. Default of zero uses all cloumns. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Buffered</b> Determines whether
+the data should be buffered in memory rather than being read throughout
+the run. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>FirstRow</b> The first row of the
+file that contains useful information. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>LastRow</b><br>
+The last row of the file that contains useful information. Default of
+zero uses all rows. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Enabled</b> The component is
+working only when this property is true. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>StepCounter</b> Input layers
+affect the running of the network. By default, each time a line is read
+from an input layer, the network monitor advances one step in the
+learning process. If there are several input layers, only one should
+have the step couter enabled. </p>
+  </li>
+  <li>
+    <p><b>MaxBufSize</b><br>
+Indicates the max buffer's size used to store the input patterns. If
+equal to 0 (the default), the buffer size is set to 1MB (augment it
+only if your input data source exceeds such size). Used only if
+'Buffered' = true, otherwise it is ignored.</p>
+  </li>
+</ul>
+<h3><img src="../../../../images/FILEIN1.gif" name="Immagine23"
+ alt=" File Input Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+File Input</h3>
+<p>This tool allows a new file input layer to be added to the
+development pane. A file input synapse allows data to be presented to
+the network from a file. The file must contain columns of integer or
+real values delimeted by a semi colon. E.g for the xor problem the
+file should contain... </p>
+<p>0;0;0 <br>
+1;0;1 <br>
+0;1;1 <br>
+1;1;0</p>
+<p>There extra property that can be set for file input layers: </p>
+<ul>
+  <li>
+    <p><b>FileName<br>
+    </b>The name of the file containing the data. E.g.
+c:\data\myFile.txt </p>
+  </li>
+</ul>
+<p><br>
+<br>
+</p>
+<h3><img src="../../../../images/URLIN1.gif" name="Immagine24"
+ alt=" URL Input Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+URL Input</h3>
+<p>This tool allows a new URL input layer to be added to the
+development pane. </p>
+<p>There extra property that should be set for URL input layers: </p>
+<ul>
+  <li>
+    <p><b>URL<br>
+    </b>The name of the Unified Resource Locator containing the data.
+E.g. http//www.demoUrl.org</p>
+  </li>
+</ul>
+<p><br>
+<br>
+</p>
+<h3><img src="../../../../images/XLSIN1.gif" name="Immagine25"
+ alt=" XLS Input Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+Excel Input</h3>
+<p>The Excel Input layer permits data from an Excel file to be
+applied to a neural network for processing. </p>
+<p>The extra properties that can be specified for Excel input layers:
+</p>
+<ul>
+  <li>
+    <p><b>fileName<br>
+    </b>The parameter allows the name of the sheet to be chosen from
+which the input data is read.</p>
+  </li>
+  <li>
+    <p><b>Sheet<br>
+    </b>The parameter allows the name of the sheet to be chosen from
+which the input data is read.</p>
+  </li>
+</ul>
+<p><br>
+<br>
+</p>
+<h3><img src="../../../../images/JDBCIN1.gif" name="Immagine26"
+ alt=" JDBC Input Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+JDBC Input</h3>
+<p>The JDBC Input layer permits data from almost any database to be
+applied to a neural network for processing. </p>
+<p>The JDBCInputSynapse provides support for data extraction from a
+database. To use this synapse you should ensure that the required
+JDBC Type 4 Driver is in the class path. It is possible to use other
+JDBC driver types though you will have to refer to the vendors
+documentation, it may require extra software insallation and this may
+limit your distributtion to certain Operating Systems.</p>
+<p>The extra properties that can be specified for JDBC input layers:</p>
+<ul>
+  <li>
+    <p><b>driverName<br>
+    </b>The name of the database driver. For exmaple if you were using
+the JdbcOdbc driver provided by sun and already present in the java
+distribution then 'sun.jdbc.odbc.JdbcOdbcDriver'</p>
+  </li>
+  <li>
+    <p><b>dbURL<br>
+    </b>The database specification. This protocol is specific to the
+driver, you must check the protocol with the driver vendor. For example
+for the JdbcOdbc bridge
+'jdbc:mysql://localhost/MyDb?user=myuser&amp;password=mypass'</p>
+  </li>
+  <li>
+    <p><b>SQLQuery<br>
+    </b>The query that you will use to extract information from the
+database. For example 'select val1,val2,result from xortable;'</p>
+  </li>
+</ul>
+<p><br>
+<br>
+</p>
+<p>Some commonly used Driver protocols are shown below ...</p>
+<p><br>
+<br>
+</p>
+<p>Driver {com.mysql.jdbc.Driver}</p>
+<p>Protocol
+{jdbc:mysql://[hostname][,failoverhost...][:port]/[dbname][?param1=value1][&amp;param2=value2].....}
+MySQL Protocol</p>
+<p>Example {jdbc:mysql://localhost/test?user=blah&amp;password=blah}</p>
+<p>Web Site {http://www.mysql.com}</p>
+<p><br>
+<br>
+</p>
+<p>Driver {sun.jdbc.odbc.JdbcOdbcDriver}</p>
+<p>Protocol { jdbc:odbc:[;=]* } ODBC Protocol</p>
+<p>Example {jdbc:odbc:mydb;UID=me;PWD=secret}</p>
+<p>Web Site {http://www.java.sun.com}</p>
+<p><br>
+<br>
+</p>
+<h4>Data Types</h4>
+<p>Any fields selected from a database should contain a single double
+or float format value. The data type is not so important it can be
+text or a number field so long as it contains just one double or
+float format value.</p>
+<p>E.g Correct = '2.31' Wrong= '3.45;1.21' and Wrong = 'hello'</p>
+<p><br>
+<br>
+</p>
+<h3><img src="../../../../images/YFIN1.gif" name="Immagine27"
+ alt=" Yahoo Finance Input Layer Icon " align="bottom" border="0"
+ height="24" width="24">
+Yahoo Finance Input</h3>
+<p>The Yahoo Finance Input Synapse provides support for financial
+data input from financial markets. The synapse contacts Yahoo Finance
+services and downloads historical data for the chosen symbol and date
+range. Finally the data is presented to the network in reverse date
+order i.e oldest first.</p>
+<p>The following properties must be provided to this synapse...</p>
+<ul>
+  <li>
+    <p><b>Symbol</b> </p>
+    <p>This is the symbol of the specific stock e.g TSCO.L for UK super
+market company Tesco's. This must be one of symbols defined by Yahoo.</p>
+  </li>
+  <li>
+    <p><b>firstDate</b> </p>
+    <p>This is the date of the oldest requested stock value. Note the
+dates should be in the following format YYYY.MM.DD where YYYY=4
+Character yeat, MM=2 character month, DD=2 character day of the month.</p>
+  </li>
+  <li>
+    <p><b>lastDate</b> </p>
+    <p>This is the date of the latest requested stock value. This uses
+the same format as First Date above.</p>
+  </li>
+  <li>
+    <p><b>Period</b> </p>
+    <p>This is the period between stock values obtained from Yahoo,
+'Daily' will obtain stock values recorded at the end of each day,
+'Monthly' will obtain stock values recorded at the beginning of each
+month, 'Yearly' will obtain stock values recorded at the start of each
+year.</p>
+  </li>
+</ul>
+<p>This synapse provides the following info .. </p>
+<p><b>Open</b> as column 1</p>
+<p><b>High</b> as column 2</p>
+<p><b>Low</b> as column 3</p>
+<p><b>Close</b> as column 4.</p>
+<p><b>Volume</b> as column 5.</p>
+<p><b>Adj close</b> as column 6<br>
+</p>
+<p>For the particular stock symbol. You must set the Advanced Column
+Selector (ACS) according to this values. If you want to use as input
+the Open, High and the Volume columns, hence you must write '1-2,5'
+into the ACS.<br>
+Note the stock symbol must be one of the symbols
+defined by Yahoo. For a list of symbols see the Finance section of
+the Yahoo web site www.yahoo.co.uk.<br>
+</p>
+<h3><img alt="InputConnector" src="../../../../images/INCONN1.gif"
+ style="width: 24px; height: 24px;">&nbsp;Input Connector</h3>
+<p style="margin-bottom: 0mm; text-align: left;">The InputConnector
+permits to share the
+same input synapse for several uses, as for training and validating a
+neural network. <br>
+</p>
+<p style="margin-bottom: 0mm; text-align: left;">When we need to train
+a
+network, we need to use at least two input data sources, one as
+training input data and another as desired data. If we add also
+another data source to validate the network, then we need to add
+other two data sources to our neural network. All those input
+synapses make the architecture of the neural network very complex,
+and, if they are buffered, a huge amount of memory is needed in
+order to store all the implied data.</p>
+In order to resolve the
+above problems, we have built a new input component named
+InputConnector. It permits to share the same input synapses for
+several uses, as depicted in the following figure:<br>
+<br>
+<img alt="input connector exsample" src="InputConnector.gif"
+ style="width: 568px; height: 343px;"><br>
+<p style="margin-bottom: 0mm; text-align: left;">To use it, simply
+connect the Input Synapse to the needed Input
+Connector(s), set their properties, and then attach each Input
+Connector to the corresponding neural network's layer, as for any other
+input synapse.<br>
+</p>
+<p style="margin-bottom: 0mm; text-align: left;">The InputConnectors
+are into the two
+red boxes, in the above figure.</p>
+<p style="margin-bottom: 0mm; text-align: left;">As you can see, thanks
+to
+the InputConnector components, we have used only one input data
+source (the Excel Input component), and only one NormalizerPlugin,
+simplifying, in this manner, the entire architecture of the neural
+network.</p>
+<p style="margin-bottom: 0mm; text-align: left;">The four
+InputConnectors are used to
+read from the Excel sheet, respectively:</p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0mm;">The input data for the training
+phase (InputTraining connector)</p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0mm;">The input data for the validation
+phase (InputValidation connector)</p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0mm;">The desired data for the training
+phase (DesiredTraining component)</p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0mm;">The desired data for the validation
+phase (DesiredValidation component)</p>
+  </li>
+</ul>
+<p style="margin-bottom: 0mm; text-align: left;">Here are the
+properties the
+InputConnector exposes:<br>
+<br>
+</p>
+<ul>
+</ul>
+<b>advancedColumnSelector</b>
+<br>
+contains the columns to read from the
+connected input synapse
+<br>
+<b>first/lastRow</b>
+<br>
+they contain the first and the last row
+we want to read from the input
+synapse
+<br>
+<b>buffered</b><br>
+if true, the InputConnector reads all
+the patterns from the connected
+input synapse when the network starts, and stores them within an
+internal buffer (by default this property is set to false). <b>Note</b>:
+set to true ONLY when an input plugin is connected to the
+InputConnector (read below)
+<ul>
+</ul>
+<br>
+the above properties are
+set independently from the corresponding ones of the connected input
+synapse.<br>
+In order to permit each InputConnector to read the piece of data it
+needs (according to its own settings), we have to set the Input
+component's property in order to read the entire input data set. For
+instance, if an InputConnector needs to read the columns from 1 to 5,
+and another one reads the columns 6 and 7, the input component's
+Advanced Column Selector property must be set to 1-7. Same thing for
+the rows, of course.
+<p style="margin-bottom: 0mm;" align="justify"><br>
+</p>
+<h2>Input Switch Layers</h2>
+<h3><img src="../../../../images/SWITCH1.gif" name="Immagine28"
+ alt=" Input Switch Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+Switch Input</h3>
+<p>The switch input allows the choice of which input component is to
+be connected to the neural network, choosing between all the input
+components attached to it. <br>
+The user, after having attached
+several input components to its input, can set the <b>active input</b>
+parameter with the name of the chosen component that is to be
+connected to the net. The <b>default input</b> parameter must be
+filled with the name of the default component (which one activated
+when the user selects the Control-&gt;Reset Input Streams menu item).
+<br>
+This component, along with the output switch layer, permits
+dynamic changing of the architecture of the neural network, changing
+the input and/or output data layers attached to the neural network at
+any time. This is useful to switch the input source, for instance,
+between the file containing the training data set and the file
+containing the validation data set to test the training of the neural
+network, as depicted in the following screen shot: </p>
+<p><img src="../../images/switch.jpg" name="Immagine29"
+ alt="Input Switch" align="bottom" border="0" height="217" width="359">
+<br>
+&nbsp; </p>
+<h3><img src="../../../../images/LEARNSWITCH1.gif" name="Immagine30"
+ alt=" Learning Swtich Layer Icon " align="bottom" border="0"
+ height="24" width="24">
+Learning Switch</h3>
+<p>The learning switch is a special implementation of the above
+switch input component. This component can be used to attach to the
+neural net both the training data set and the validation data set. In
+this manner the user can test the generalization property of a neural
+network using a different data set never seen during the training
+phase. <br>
+The training input data set can be attached dragging an
+arrow from the input component to the learning switch, while the
+validation input data set can be attached simply by dragging an arrow
+from the red square on top of the learning switch to the input
+component containing the validation data set. <br>
+To switch between
+them, simply we can change the value of the 'validation' parameter
+shown in the Control Panel. <br>
+The 'validation' parameter, other
+than to switch between the two input sources, will set the number of
+input patterns read: when it is 'false', the neural network will read
+a number of patterns equal to the <b>trainingPatterns</b> parameter,
+whereas, when it is 'false', a number of patterns equal to
+<b>validationPatterns</b> will be read from the active input source. </p>
+<p>Both these above parameters must be obtained from the following
+formula: <i>lastRow - firstRow + 1</i> <br>
+where the last/firstRow
+variables contain the values of the corrisponding parameters of the
+attached input components. </p>
+<p><img src="../../images/learningSwitch.png" name="Immagine31"
+ align="bottom" border="0" height="185" width="388">
+</p>
+<p><b>Warning</b>: Because we will have a validation data set for the
+desired data too, this component must be inserted both before the
+input layer of the neural network, and between the Teacher layer and
+the desired input data sets. </p>
+<p><br>
+<br>
+</p>
+<h2>Neural Network Layers</h2>
+<h3><img src="../../../../images/LINEAR1.gif" name="Immagine32"
+ alt="Linear Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+Linear</h3>
+<p>This tool allows a new linear processing layer to be added to the
+development pane. </p>
+<p>There are three properties that can be set for linear layers: </p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Layer Name</b> <br>
+The name of the layer as displayed on the development pane. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Rows</b> <br>
+The number of neurons in the layer. </p>
+  </li>
+  <li>
+    <p><b>Beta</b> <br>
+The amount the sum of the inputs is scaled by. The output of a neuron
+is the sum of the inputs multiplied by beta. </p>
+  </li>
+</ul>
+<h3><img src="../../../../images/SIGMOID1.gif" name="Immagine33"
+ alt="Sigmoid Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+Sigmoid</h3>
+<p>This tool allows a new sigmoid processing layer to be added to the
+development pane. </p>
+<p>There are two properties that can be set for sigmoid layers: </p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Layer Name</b> <br>
+The name of the layer as displayed on the development pane. </p>
+  </li>
+  <li>
+    <p><b>Rows</b> <br>
+The number of neurons in the layer. </p>
+  </li>
+</ul>
+<h3><img src="../../../../images/TANH1.gif" name="Immagine34"
+ alt="TanH Layer Icon " align="bottom" border="0" height="24" width="24">
+Tanh</h3>
+<p>This tool allows a new tanh processing layer to be added to the
+development pane. </p>
+<p>There are two properties that can be set for tanh layers: </p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Layer Name</b> <br>
+The name of the layer as displayed on the development pane. </p>
+  </li>
+  <li>
+    <p><b>Rows</b> <br>
+The number of neurons in the layer. </p>
+  </li>
+</ul>
+<h3><img src="../../../../images/LOG1.gif" name="Immagine35"
+ alt="LOG Layer Icon " align="bottom" border="0" height="24" width="24">
+Logarithmic</h3>
+<p>This tool allows a new logarithmic processing layer to be added to
+the development pane. </p>
+<p>There are two properties that can be set for tanh layers: </p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Layer Name</b> <br>
+The name of the layer as displayed on the development pane. </p>
+  </li>
+  <li>
+    <p><b>Rows</b> <br>
+The number of neurons in the layer.</p>
+  </li>
+</ul>
+<h3><img alt="sine layer" src="../../../../images/SINELAYER1.gif"
+ style="width: 24px; height: 24px;"> Sine</h3>
+<p style="margin-bottom: 0mm;" align="justify" lang="en-GB">The output
+of a Sine Layer neuron is the sum of the weighted input values,
+applied to a sine – sin(x) – transfer function. Neurons with sine
+activation function might be useful in problems with periodicity.<br>
+Properties:<br>
+</p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Layer Name</b> <br>
+The name of the layer as displayed on the development pane. </p>
+  </li>
+  <li>
+    <p><b>Rows</b> <br>
+The number of neurons in the layer.</p>
+  </li>
+</ul>
+<br>
+<h3><img src="../../../../images/DELAY1.gif" name="Immagine36"
+ alt="Delay Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+Delay</h3>
+<p>This tool allows a new delay layer to be added to the development
+pane. </p>
+<p>There are three properties that can be set for delay layers: </p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Layer Name</b> <br>
+The name of the layer as displayed on the development pane. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Rows</b> <br>
+The number of neurons in the layer. </p>
+  </li>
+  <li>
+    <p><b>Taps</b> <br>
+The number of delay taps on each row. Each tap delays the output one
+cycle, so for example setting taps to 2 would, for each row, make the
+current value, the previous value and the value before that available. </p>
+  </li>
+</ul>
+<p><br>
+<br>
+</p>
+<h3><img src="../../../../images/CONTEXT1.gif" name="Immagine37"
+ alt="Context Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+Context</h3>
+<p>This tool allows a new context processing layer to be added to the
+development pane. </p>
+<p>There are two properties that can be set for context layers: </p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Layer Name</b> <br>
+The name of the layer as displayed on the development pane. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Rows</b> <br>
+The number of neurons in the layer.</p>
+  </li>
+  <li>
+    <p><b>Beta</b> </p>
+  </li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; The amount the sum of
+the inputs is scaled by. The output of a neuron is the sum of the
+inputs multiplied by beta.</p>
+<ul>
+  <li>
+    <p><b>timeConstant</b> </p>
+  </li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp; The fixed weight of
+the recurrent connection (not learned)</p>
+<h3><img src="../../../../images/NESTEDNN1.gif" name="Immagine38"
+ alt="Nested ANN Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+Nested ANN</h3>
+<p>The nested neural network permits a whole neural network to be
+added to the NN. Using this component, it is possible to build
+modular neural networks, constituted by several pre-built neural
+networks, allowing complex compound ‘organisms’ to be created.
+The parameter ‘Nested ANN’ must be filled with the name of a
+serialized neural network (saved with the File-&gt;Export neural net
+menu item). <br>
+<b>Note:</b> Remember that a neural network, to be
+used in a nested ANN component, must be composed only of processing
+elements, so remember to eliminate any file I/O and/or Teacher
+layers. <br>
+&nbsp; </p>
+<h3><img src="../../../../images/WTALAYER1.gif" name="Immagine39"
+ alt="Winner Takes All Layer Icon " align="bottom" border="0"
+ height="24" width="24">
+Winner Takes All Layer</h3>
+<p>A Winner Takes All layer is an unsupervised component. It can be
+used to build SOM networks that require a winner take all learning
+strategy. Ensure that the layers input synapse implements SOM weights
+such as the Kohonen Synapse. Failure to do so will result in
+unspecified behaviour.</p>
+<p>The properties of this layer are ... </p>
+<ul>
+  <li>
+    <p><b>Layer Name<br>
+    </b>The name of this layer.</p>
+  </li>
+  <li>
+    <p><b>Width<br>
+    </b>The width if the SOM layer map.</p>
+  </li>
+  <li>
+    <p><b>Height<br>
+    </b>The height of the SOM layer map.</p>
+  </li>
+</ul>
+<h3><img src="../../../../images/GAUSLAYER1.gif" name="Immagine40"
+ alt="Gaussian Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+Gaussian Layer</h3>
+<p>A Gaussian layer is an unsupervised component. It can be used to
+build SOM networks that require a guassian distributed learning
+strategy. Ensure that the layers input synapse implements SOM weights
+such as the Kohonen Synapse. Failure to do so will result in
+unspecified behaviour.</p>
+<p>The properties of this layer are ... </p>
+<ul>
+  <li>
+    <p><b>Layer Name<br>
+    </b>The name of this layer.</p>
+  </li>
+  <li>
+    <p><b>Width<br>
+    </b>The width if the SOM layer map.</p>
+  </li>
+  <li>
+    <p><b>Height<br>
+    </b>The height of the SOM layer map.</p>
+  </li>
+  <li>
+    <p><b>ordering phase (epochs)<br>
+    </b>How long the layer distributes the learning strategy in a
+gaussian manor.</p>
+  </li>
+  <li>
+    <p><b>TimeConstant<br>
+    </b>The time constant is used to decrease the size of the spatial
+map.</p>
+  </li>
+</ul>
+<p><br>
+<br>
+</p>
+<h2>Output Swtich Layers</h2>
+<h3><img src="../../../../images/SWITCHOUT1.gif" name="Immagine41"
+ alt="Output Swtich Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+Switch Output</h3>
+<p>The switch output permits the choice of which output component is
+to be connected to the neural network, choosing it between all the
+output components attached. <br>
+The user, after having attached
+several components to its output, can set the <b>active output</b>
+parameter with the name of the chosen component that is to be
+connected to the net. The <b>default output</b> parameter must be
+filled with the name of the default&nbsp; component (which one
+activated when the user selects the Control-&gt;Reset Input Streams
+menu item). </p>
+<h2>Output Layers</h2>
+<h3><img src="../../../../images/FILEOUT1.gif" name="Immagine42"
+ alt="File Output Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+File Output</h3>
+<p>This tool allows a new file output layer to be added to the
+development pane. </p>
+<p>There are four properties that can be set for file output layers: </p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>IgnoreBefore</b> <br>
+The number of rows to skip before writing output data. This allows
+header rows to be preserved. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Name</b> <br>
+The name of the layer as displayed on the development pane. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0cm;"><b>Enabled</b> <br>
+Not used, for future development. </p>
+  </li>
+  <li>
+    <p><b>FileName</b> <br>
+The name of the file to write to. E.g. c:\data\myOutFile.txt </p>
+  </li>
+</ul>
+<h3><img src="../../../../images/XLSOUT1.gif" name="Immagine43"
+ alt="XLS Output Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+Excel Output</h3>
+<p>The Excel output layer is used to write the results of a
+processing layer to an Excel formatted file. The <b>filename</b>
+parameter specifies the file that the results are to be written to.
+The <b>sheet</b> parameter allows the name of the sheet to be chosen,
+to which the input data is to be written. </p>
+<h3><img src="../../../../images/JDBCOUT1.gif" name="Immagine47"
+ alt=" JDBC Output Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+JDBC Output</h3>
+<p>The JDBC Output layer allows the neural network output data to be
+written to almost any database. </p>
+<p>The JDBCOutputSynapse provides support for data output to a
+database. To use this synapse you should ensure that the required
+JDBC Type 4 Driver is in the class path. It is possible to use other
+JDBC driver types though you will have to refer to the vendors
+documentation, it may require extra software insallation and this may
+limit your distributtion to certain Operating Systems.</p>
+<p>The extra properties that can be specified for JDBC output layers:</p>
+<ul>
+  <li>
+    <p><b>driverName<br>
+    </b>The name of the database driver. For exmaple if you were using
+the JdbcOdbc driver provided by sun and already present in the java
+distribution then 'sun.jdbc.odbc.JdbcOdbcDriver'</p>
+  </li>
+  <li>
+    <p><b>dbURL<br>
+    </b>The database specification. This protocol is specific to the
+driver, you must check the protocol with the driver vendor. For example
+for the JdbcOdbc bridge
+'jdbc:mysql://localhost/MyDb?user=myuser&amp;password=mypass'</p>
+  </li>
+  <li>
+    <p><b>SQLAmendment<br>
+    </b>The amendment that you will use to place information into the
+database. Each output value can be referred to in the amendment string
+using JOONE[X] where X is the Xth index of the required output value
+and X=1 is the first output index. For example 'insert into
+my_result_table (result1,result2) values ('JOONE[1]','JOONE[2]')'.</p>
+  </li>
+</ul>
+<p><br>
+<br>
+</p>
+<p>Some commonly used Driver protocols are shown below ...</p>
+<p><br>
+<br>
+</p>
+<p>Driver {com.mysql.jdbc.Driver}</p>
+<p>Protocol
+{jdbc:mysql://[hostname][,failoverhost...][:port]/[dbname][?param1=value1][&amp;param2=value2].....}
+MySQL Protocol</p>
+<p>Example {jdbc:mysql://localhost/test?user=blah&amp;password=blah}</p>
+<p>Web Site {http://www.mysql.com}</p>
+<p><br>
+<br>
+</p>
+<p>Driver {sun.jdbc.odbc.JdbcOdbcDriver}</p>
+<p>Protocol { jdbc:odbc:[;=]* } ODBC Protocol</p>
+<p>Example {jdbc:odbc:mydb;UID=me;PWD=secret}</p>
+<p>Web Site {http://www.java.sun.com}</p>
+<p><br>
+<br>
+</p>
+<p>Data Types</p>
+<p>Any fields used to store values in a database should be able to hold
+a single double value. The data type is not so important it can be
+text or a number field so long as it can hold one double value.</p>
+<p><br>
+<br>
+</p>
+<h2>Teacher Layer</h2>
+<h3><img src="../../../../images/TEACH1.gif" name="Immagine44"
+ alt="Teacher Layer Icon " align="bottom" border="0" height="24"
+ width="24">
+Teacher</h3>
+<p>This tool allows a new teacher layer to be added to the
+development pane.</p>
+<p>Teacher layers are connected differently to other layers. The
+teacher layer needs to be connected to the output of the network and
+also to the input that contains the desired results. </p>
+<p>Connections from the output of the network to the teacher are made
+in the usual way. </p>
+<p>Connections from the teacher to the desired input layer are made
+by selecting the teacher layer, displaying the red square, and
+drawing a yellow line from this to the input layer. </p>
+<p><img src="../../images/teaching.jpg" name="Immagine45" alt="Teacher"
+ align="bottom" border="0" height="144" width="246">
+</p>
+<p>There is one property that can be set for teacher layers: </p>
+<ul>
+  <li>
+    <p><b>Name</b> <br>
+The name of the layer as displayed on the development pane. </p>
+  </li>
+</ul>
+</body>
+</html>

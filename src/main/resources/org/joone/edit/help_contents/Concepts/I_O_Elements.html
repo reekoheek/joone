@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <title>I/O Elements</title>
+</head>
+
+<body>
+<h1>I/O Layers</h1>
+
+
+<p style="margin-bottom: 0mm; text-align: left;" lang="en-GB">The I/O
+components of the core engine implement the mechanism needed to make
+possible the connection of a neural network to external sources of
+data, either to read the patterns to elaborate, or to store of the
+results of the network to whatever output device is required.</p>
+
+<div style="text-align: left;">
+</div>
+
+<p style="margin-bottom: 0mm; text-align: left;" lang="en-GB">All the I/O
+components extend the Synapse object, so they can be &#8216;attached&#8217;
+to the input or the output of a generic Layer object since they
+expose the same interface required by any i/o listener of a Layer.</p>
+
+<div style="text-align: left;">
+</div>
+
+<p style="margin-bottom: 0mm; text-align: left;" lang="en-GB">Using this
+simple mechanism the Layer is not affected by the kind of synapse
+connected to it because as they all have the same interface, the
+Layer will continue to call the Get and Put methods without needing
+to know more about their specialization.<br>
+</p>
+
+<div style="text-align: left;">
+</div>
+
+<div style="text-align: left;">
+</div>
+
+<h2 class="western" lang="en-GB">The Input mechanism</h2>
+
+<div style="text-align: left;">
+To permit
+the user to utilize any source of data as input of a neural network,
+a complete input mechanism has been designed into the core engine.
+</div>
+
+<p style="margin-bottom: 0mm; text-align: left;"><span lang="en-GB">The
+main concept underlying the input system is that a neural network
+elaborates &#8216;patterns&#8217;. A pattern is composed by a row of values
+[x<font face="Times, serif"><sub>11</sub></font>, x<font face="Times, serif"><sub>12</sub></font>,
+&#8230;, x<font face="Times, serif"><sub>1N</sub></font>] representing an
+instance of the input dataset.</span></p>
+
+<div style="text-align: left;">
+</div>
+
+<p style="margin-bottom: 0mm; text-align: left;"><span lang="en-GB">The
+neural network reads and elaborates sequentially all the input <i>rows</i>
+(all constituted by the same number of values &#8211; or <i>columns</i>)
+and for each one it generates an output pattern representing the
+outcome of the entire process.</span></p>
+
+<div style="text-align: left;">
+</div>
+
+<p style="margin-bottom: 0mm; text-align: left;" lang="en-GB">We need two
+main features to reach the goal to make this mechanism as more as
+flexible we can:</p>
+
+<div style="text-align: left;">
+<br>
+
+<span lang="en-GB">Firstly,
+to represent a row of values Joone uses an array of double, hence to
+permit to use whatever format of data from whatever source, we need a
+&#8216;<b>format converter</b>&#8217;. It&#8217;s based on the concept that a
+neural network can elaborate only numerical data (integer or real),
+hence a system to convert any external format to numeric values is
+provided. This acts as a &#8216;pluggable&#8217; driver: with Joone is
+provided an interface and some basic drivers (for instance one to
+read ASCII values and another to read Excel sheets) to convert the
+input values to an array of double - the unique format accepted by a
+neural network to work properly.</span>
+</div>
+
+<p style="margin-bottom: 0mm; text-align: left;" lang="en-GB">This
+mechanism is expansible, as everyone can write new drivers
+implementing the provided interfaces.</p>
+
+<div style="text-align: left;">
+<br>
+
+<span lang="en-GB">Secondly,
+because normally not all the available rows and columns have to be
+used as input data, a &#8216;<b>selection mechanism</b>&#8217; to select the
+input values is provided. This second feature is implemented as a
+component interposed between the above driver and the first layer of
+the neural network.</span>
+</div>
+
+<p style="margin-bottom: 0mm; text-align: left;" lang="en-GB">The 'cut'
+of
+the needed input columns is made by using a paremeter named
+<font face="Courier New, monospace">AdvancedColumnSelector</font>.</p>
+
+<div style="text-align: left;">
+</div>
+
+<p style="margin-bottom: 0mm; text-align: left;" lang="en-GB">The
+advanced
+column selector specifies what columns from the input source should
+be presented the next layer. For example if a file input contains 5
+columns, you could specify that only columns 1 and 3 be presented to
+the next layer. The selector must be a list of one or a comma
+delimeted list of multiple options. The options can be one column '2'
+or a range of columns '3-6'. The format for the selector is as
+follows ... <br>
+<span style="background: rgb(230, 230, 230) none repeat scroll 0% 50%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;"><font face="Courier New, monospace">[col]{,[col]{,[col1-col2]}}</font></span>
+<br>
+For example if the input source has 5 columns and you would like
+to use column 1 and columns 3,4 and 5, you could specify the selector
+as '1,3-5' or '1,3,4,5'.</p>
+
+<div style="text-align: left;">
+</div>
+
+<p style="margin-bottom: 0mm; text-align: left;" lang="en-GB">For
+specific
+needs the same column can be read many times within the same pattern,
+simply specifying the same number more than once, like in the
+following example: '1,3,3,3,4'.<br>
+</p>
+
+<div style="text-align: left;">
+</div>
+
+<div style="text-align: left;">
+</div>
+
+<h2 class="western" lang="en-GB">The Output components<br>
+</h2>
+
+<div style="text-align: left;"><span lang="en-GB">The
+<font size="3"><font face="Courier New, monospace">Output components</font></font>
+allow a neural network to write output patterns to a whatever storing
+support.</span>
+</div>
+
+<p style="margin-bottom: 0mm; text-align: left;" lang="en-GB">They write
+all the values of the pattern passed by the calling attached Layer to
+an output stream, permitting the output patterns from an
+interrogation phase to be written as, for example, ASCII files, FTP
+sites, spreadsheets, charting visual components, etc.</p>
+
+<div style="text-align: left;">
+<br>
+
+Joone has
+several real implementations of the output classes to write patterns
+in the following formats:<br>
+<br>
+
+</div>
+
+
+    
+<ul>
+
+  <li>Comma separated ASCII values</li>
+  <li>Excel spreadsheets</li>
+  <li>RDBMS tables using JDBC</li>
+  <li>Java Arrays - to write the output in a 2D array of doubles, to use the 
+output of a neural network from an embedding or external application.</li>
+</ul>
+
+
+</body></html>

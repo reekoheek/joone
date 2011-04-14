@@ -1,0 +1,462 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title></title>
+  <meta name="GENERATOR" content="OpenOffice.org 1.1.0  (Linux)">
+  <meta name="CREATED" content="20030831;23330400">
+  <meta name="CHANGED" content="20030831;23335200">
+  <style>
+	<!--
+		H2 { margin-left: 0.3cm; margin-bottom: 0.11cm }
+		H2.western { font-family: "Arial", sans-serif; font-size: 14pt; so-language: en-US; font-style: italic }
+		H2.cjk { font-family: "Bitstream Vera Sans"; font-size: 14pt; font-style: italic }
+		H2.ctl { font-family: "Arial", sans-serif; font-size: 14pt; font-style: italic }
+	-->
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+<h1 align="left" style="page-break-before: always;">The XML Parameter
+File</h1>
+<p lang="en-GB">This section explains how to modify the tool palette to
+personalize and extend the editor with new components.<br>
+<br>
+By default he Joone Editor will look for the file
+org/joone/data/layers.xml as the parameter file, but this behaviour can
+be overridden by specifying the parameter file as a parameter to the
+run command: </p>
+<p lang="en-GB"><big><font size="2" style="font-family: monospace;"><big>java
+org.joone.edit.JoonEdit <span lang="en-GB">/<i>some_path</i>/<i>your_parameter_file</i>.xml</span></big></font></big><br>
+<br>
+The layers.xml file provided with Joone includes all the available
+component types in the Joone project although some of the less-used
+ones are commented out.</p>
+<h2 lang="en-GB" class="western">The &lt;buttons&gt; … &lt;/buttons&gt;
+Section</h2>
+<p lang="en-GB">This section contains all the buttons that are present
+in the toolbar.</p>
+<p align="left" style="margin-bottom: 0cm;"><font color="#0000ff"><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">&lt;</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">layer</font></font></span></font><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace"> </font></font></span><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">type</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> class</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…”</font></font></span></b><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> image</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">" /&gt;</font></font></span></font></p>
+<p lang="en-GB" align="left" style="margin-bottom: 0cm;">This section
+describes a layer. Its parameters are:</p>
+<p lang="en-GB" align="left" style="margin-bottom: 0cm;"> </p>
+<table width="617" border="1" bordercolor="#000000" cellpadding="7"
+ cellspacing="0">
+  <col width="54"> <col width="532"> <tbody>
+    <tr valign="top">
+      <td width="54">
+      <p align="left"><span lang="en-GB"><b>type</b>:</span></p>
+      </td>
+      <td width="532">
+      <p lang="en-GB" align="left">The name of the layer that will be
+shown when the mouse passes over it.</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="54">
+      <p align="left"><span lang="en-GB"><b>class</b>:</span></p>
+      </td>
+      <td width="532">
+      <p align="left"><span lang="en-GB">The name of the class
+(complete with the package ‘xxx.yyy.zzz.classname’). The class must
+extend the <font size="2"><font face="Courier New, monospace">org.joone.engine.Layer</font></font>
+class and must be in the JVM classpath.</span></p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="54">
+      <p align="left"><span lang="en-GB"><b>image</b>:</span></p>
+      </td>
+      <td width="532">
+      <p lang="en-GB" align="left">The name of the image of the toolbar
+button. The name of the file should be: “org.joone.images.” +
+image_name + “.gif”, so the searched file name will be:
+/org/joone/images/image_name.gif (only gif images are allowed in the
+actual version of the editor).</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p align="left" style="margin-bottom: 0cm;"><br>
+</p>
+<p align="left" style="margin-bottom: 0cm;"><font color="#0000ff"><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">&lt;</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">input_layer type</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> class</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> image</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">" /&gt;</font></font></span></font></p>
+<span lang="en-GB">This section describes an input layer. All
+parameters are the same as above. The input layer class must extend the
+<font size="2"><font face="Courier New, monospace">org.joone.io.StreamInputSynapse</font></font>
+and must be in the classpath.</span>
+<p align="left" style="margin-bottom: 0cm;"><font color="#0000ff"><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">&lt;</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">input_switch type</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> class</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> image</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">" /&gt;</font></font></span></font></p>
+<span lang="en-GB">This section describes an input switch layer. All
+parameters are the same as above. The input switch layer class must
+extend the <font size="2"><font face="Courier New, monospace">org.joone.engine.InputSwitchSynapse</font></font>
+and must be in the classpath.</span>
+<p align="left" style="margin-bottom: 0cm;"><font color="#0000ff"><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">&lt;</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">learning_switch type</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> class</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> image</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">" /&gt;</font></font></span></font></p>
+This section describes a learning switch layer.
+<p align="left" style="margin-bottom: 0cm;"><span lang="en-GB">All
+parameters are the same as above. The learning switch layer class must
+extend the <font size="2"><font face="Courier New, monospace">org.joone.engine.learning.LearningSwitch</font></font>
+and must be in the classpath.</span></p>
+<p align="left" style="margin-bottom: 0cm;"><font color="#0000ff"><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">&lt;</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">output_layer</font></font></span></font><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace"> </font></font></span><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">type</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> class</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> image</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">" /&gt;</font></font></span></font></p>
+<span lang="en-GB">This section describes an output layer. All
+parameters are the same as above. The output layer class must extend
+the <font size="2"><font face="Courier New, monospace">org.joone.io.StreamOutputSynapse</font></font>
+and must be in the classpath.</span>
+<p align="left" style="margin-bottom: 0cm;"><font color="#0000ff"><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">&lt;</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">output_switch type</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> class</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> image</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">" /&gt;</font></font></span></font></p>
+<span lang="en-GB">This section describes an output switch layer. All
+parameters are the same as above. The output switch layer class must
+extend the <font size="2"><font face="Courier New, monospace">org.joone.engine.OutputSwitchSynapse</font></font>
+and must be in the classpath.</span>
+<p align="left" style="margin-bottom: 0cm;"><font color="#0000ff"><span
+ lang="en-GB"><font size="2"><font face="Verdana, sans-serif">&lt;</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Verdana, sans-serif">teacher_layer</font></font></span></font><span
+ lang="en-GB"><font size="2"><font face="Verdana, sans-serif"> </font></font></span><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Verdana, sans-serif">type</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Verdana, sans-serif">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Verdana, sans-serif">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Verdana, sans-serif">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Verdana, sans-serif"> class</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Verdana, sans-serif">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Verdana, sans-serif">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Verdana, sans-serif">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Verdana, sans-serif"> image</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Verdana, sans-serif">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Verdana, sans-serif">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Verdana, sans-serif">" /&gt;</font></font></span></font></p>
+<span lang="en-GB">This section describes a teacher layer. All
+parameters are the same as above. The teacher layer class must extend
+the <font size="2"><font face="Courier New, monospace">org.joone.engine.learning.TeachingSynapse</font><b><font
+ face="Verdana, sans-serif"> </font></b></font>and must be in the
+classpath.</span>
+<p align="left" style="margin-bottom: 0cm;"><font color="#0000ff"><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">&lt;</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">input_plugin</font></font></span></font><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace"> </font></font></span><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">type</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> class</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> image</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">" /&gt;</font></font></span></font></p>
+<span lang="en-GB">This section describes an input plugin for the data
+pre-processing. All parameters are the same as above. The input plugin
+class must extend the <font size="2"><font
+ face="Courier New, monospace">org.joone.util.ConverterPlugin </font></font>class
+and must be in the classpath.</span>
+<p align="left" style="margin-bottom: 0cm;"><font color="#0000ff"><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">&lt;</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">output_plugin</font></font></span></font><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace"> </font></font></span><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">type</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> class</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> image</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">" /&gt;</font></font></span></font></p>
+<span lang="en-GB">This section describes an output plugin for the data
+post-processing. All parameters are the same as above. The input plugin
+class must extend the <font size="2"><font
+ face="Courier New, monospace">org.joone.util.OutputConverterPlugin </font></font>class
+and must be in the classpath.</span>
+<p align="left" style="margin-bottom: 0cm;"><font color="#0000ff"><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">&lt;</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">monitor_plugin</font></font></span></font><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace"> </font></font></span><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">type</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> class</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">"</font></font></span></font><font
+ color="#990000"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace"> image</font></font></span></font><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">="</font></font></span></font><b><span
+ lang="en-GB"><font size="2"><font face="Courier New, monospace">…</font></font></span></b><font
+ color="#0000ff"><span lang="en-GB"><font size="2"><font
+ face="Courier New, monospace">" /&gt;</font></font></span></font></p>
+<span lang="en-GB">This section describes a monitor plugin to control
+the behaviour of the training process. All parameters are the same as
+above. The monitor plugin class must extend the <font size="2"><font
+ face="Courier New, monospace">org.joone.util.MonitorPlugin </font></font>class
+and must be in the classpath.</span>
+<p align="left" style="margin-bottom: 0cm;"><font color="#0000ff"><font
+ size="2"><font face="Courier New, monospace">&lt;</font></font></font><font
+ color="#990000"><font size="2"><font face="Courier New, monospace">synapse</font></font></font><font
+ size="2"><font face="Courier New, monospace"> </font></font><font
+ color="#990000"><font size="2"><font face="Courier New, monospace">type</font></font></font><font
+ color="#0000ff"><font size="2"><font face="Courier New, monospace">="</font></font></font><font
+ size="2"><font face="Courier New, monospace">…</font></font><font
+ color="#0000ff"><font size="2"><font face="Courier New, monospace">"</font></font></font><font
+ color="#990000"><font size="2"><font face="Courier New, monospace">
+class</font></font></font><font color="#0000ff"><font size="2"><font
+ face="Courier New, monospace">="</font></font></font><font size="2"><font
+ face="Courier New, monospace">…</font></font><font color="#0000ff"><font
+ size="2"><font face="Courier New, monospace">"</font></font></font><font
+ color="#990000"><font size="2"><font face="Courier New, monospace">
+label</font></font></font><font color="#0000ff"><font size="2"><font
+ face="Courier New, monospace">="</font></font></font><font size="2"><font
+ face="Courier New, monospace">…</font></font><font color="#0000ff"><font
+ size="2"><font face="Courier New, monospace">"</font></font></font><font
+ color="#990000"><font size="2"><font face="Courier New, monospace">
+image</font></font></font><font color="#0000ff"><font size="2"><font
+ face="Courier New, monospace">="</font></font></font><font size="2"><font
+ face="Courier New, monospace">…</font></font><font color="#0000ff"><font
+ size="2"><font face="Courier New, monospace">" /&gt;</font></font></font></p>
+This section describes a synapse to connect two layers together. This
+tag has the same properties as the other components, plus a ‘label’
+property to set the label shown in the little box. The label is not
+mandatory but its use is recommended to visually distinguish various
+types of synapse displayed in the drawing area. If no label is
+specified, the synapses will be drawn as an arrow. The synapse
+component must extend the <font size="2"><font
+ face="Courier New, monospace">org.joone.engine.Synapse</font></font>
+class.
+<h2 lang="en-GB" class="western">The &lt;options&gt; … &lt;/options&gt;
+Section</h2>
+<p lang="en-GB">This section contains all the parameters that control
+the behaviour of the GUI editor. Currently it contains the following
+tags:</p>
+<p><font color="#0000ff"><font face="Courier New, monospace">&lt;</font></font><font
+ color="#990000"><font size="2"><font face="Courier New, monospace">refreshing_rate</font></font></font><font
+ size="2"><font face="Courier New, monospace"> </font></font><font
+ color="#990000"><font size="2"><font face="Courier New, monospace">value</font></font></font><font
+ color="#0000ff"><font face="Courier New, monospace">="</font></font><b><font
+ size="2"><font face="Courier New, monospace">nnn</font></font></b><font
+ color="#0000ff"><font face="Courier New, monospace">" /&gt;</font></font></p>
+This parameter controls the refreshing rate of the fields shown in the
+control panel during the training. To speed up the training process,
+set
+this value to a high value (100 or more).<br>
+<br>
+<p><font color="#0000ff"><font face="Courier New, monospace">&lt;</font></font><font
+ color="#990000"><font size="2"><font face="Courier New, monospace">http_proxy</font></font></font><font
+ size="2"><font face="Courier New, monospace"> </font></font><font
+ color="#990000"><font size="2"><font face="Courier New, monospace">host</font></font></font><font
+ color="#0000ff"><font face="Courier New, monospace">="</font></font><b>hostname</b><font
+ color="#0000ff"><font face="Courier New, monospace">" </font></font><font
+ color="#990000"><font size="2"><font face="Courier New, monospace">port</font></font></font><font
+ color="#0000ff"><font face="Courier New, monospace">="</font></font><b><font
+ size="2"><font face="Courier New, monospace">nnnn</font></font></b><font
+ color="#0000ff"><font face="Courier New, monospace">" </font></font><font
+ color="#990000"><font size="2"><font face="Courier New, monospace">userid</font></font></font><font
+ color="#0000ff"><font face="Courier New, monospace">="</font></font><b><font
+ size="2"><font face="Courier New, monospace">userid</font></font></b><font
+ color="#0000ff"><font face="Courier New, monospace">" </font></font><font
+ color="#990000"><font size="2"><font face="Courier New, monospace">passw</font></font></font><font
+ color="#0000ff"><font face="Courier New, monospace">="</font></font><b><font
+ size="2"><font face="Courier New, monospace">password</font></font></b><font
+ color="#0000ff"><font face="Courier New, monospace">"</font></font><font
+ color="#0000ff"><font face="Courier New, monospace"> /&gt;</font></font></p>
+This tag is useful to permit the access to the Internet also in
+presence of a firewall proxy (used by the URLInput and YahooFinance
+input components).<br>
+The parameters are self-explicative.<br>
+<h2 lang="en-GB" class="western">Separators</h2>
+<p lang="en-GB" align="left" style="margin-bottom: 0cm;">Small spaces
+can be inserted between toolbar buttons by inserting separator tags at
+the required position in the layers file thus:</p>
+<p style="margin-bottom: 0cm;"><font face="Courier New, monospace"><font
+ size="2">&lt;separator/&gt;</font></font></p>
+<h2 lang="en-GB" class="western">Temporarily Removing Items</h2>
+Any item can be temporarily removed from the toolbar by enclosing the
+item in comment tags <font size="2"><font face="Courier New, monospace">&lt;!--</font></font>
+and <font size="2"><font face="Courier New, monospace">--&gt;</font></font>.
+For example, to temporarily remove a separator from the toolbar, edit
+the separator tag… <br>
+<big><font style="font-family: monospace;"><font size="2"><big>&lt;separator/&gt;</big></font></font></big>
+<br>
+…to… <br>
+<big><font style="font-family: monospace;"><font size="2"><big>&lt;!--&lt;separator/&gt;--&gt;</big></font></font></big>
+<br>
+…or alternatively… <br>
+<big><font style="font-family: monospace;"><font size="2"><big>&lt;!--&lt;separator/--&gt;</big></font></font></big>
+<p><br>
+<br>
+</p>
+</body>
+</html>

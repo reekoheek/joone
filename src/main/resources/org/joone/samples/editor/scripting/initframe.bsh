@@ -1,0 +1,10 @@
+   fr = new JFrame();
+   pnl = new JPanel();
+   lbl = new JLabel("RMSE: ");
+   txt = new JLabel("0");
+   pnl.add(lbl);
+   pnl.add(txt);
+   fr.setContentPane(pnl);
+   fr.setTitle("Validation error");
+   fr.show();
+   fr.pack();

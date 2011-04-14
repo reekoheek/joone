@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title></title>
+	 	
+  <meta name="GENERATOR" content="OpenOffice.org 1.1.0  (Linux)">
+	
+  <meta name="CREATED" content="20030930;19304800">
+	
+  <meta name="CHANGED" content="20030930;19331100">
+	
+  <style>
+	<!--
+		@page { size: 21.59cm 27.94cm; margin: 2cm }
+		P { margin-bottom: 0.21cm }
+		H3 { margin-bottom: 0.11cm }
+		H3.western { font-family: "Arial", sans-serif; font-size: 13pt }
+		H3.cjk { font-family: "Bitstream Vera Sans"; font-size: 13pt }
+		H3.ctl { font-family: "Arial", sans-serif; font-size: 13pt }
+		H4 { margin-bottom: 0.11cm }
+		H4.western { font-family: "Arial", sans-serif }
+		H4.cjk { font-family: "Bitstream Vera Sans"; font-size: 10pt }
+		H4.ctl { font-family: "Lucidasans"; font-size: 14pt }
+	-->
+	</style>
+</head>
+<body lang="en-US" dir="ltr">
+<h2>The Synapses</h2>
+The Synapse represents the connection between two layers, permitting a
+pattern to be passed from one layer to another. <br>
+The Synapse is also the ‘memory’ of a neural network. During the
+training process the weigh of each connection is modified according the
+implemented learning algorithm. <br>
+Remember that, as described above, a synapse is both the output synapse
+of a layer and the input synapse of the next connected layer in the NN,
+hence it represents a shared resource between two Layers (no more than
+two, because a Synapse can be attached only once as the input or the
+output of a Layer).<br>
+<br>
+To avoid a layer trying to read the pattern from its input synapse
+before the other layer has written it, the shared synapse in
+synchronized; in other terms, a semaphore based mechanism prevents two
+Layers from accessing simultaneously to a shared Synapse.
+<h3>The Direct Synapse</h3>
+The DirectSynapse represents a direct connection 1-to-1 between the
+nodes of the two connected layers, as depicted in the following figure:
+<p lang="en-GB" style="margin-bottom: 0cm;"><img
+ src="Synapses_html_46872152.gif" name="Object38" align="left"
+ width="250" height="184"><br clear="left">
+<br>
+</p>
+Each connection has a weight equal to 1, and it doesn't change during
+the learning phase. <br>
+Of course, a DirectSynapse can connect only layers having the same
+numbers of neurons, or nodes.
+<h3>The Full Synapse<br>
+</h3>
+The FullSynapse connects all the nodes of a layer with all the nodes of
+the other layer, as depicted in the following figure:
+<p lang="en-GB" style="margin-bottom: 0cm;"><br>
+</p>
+<p lang="en-GB" style="margin-bottom: 0cm;"><img
+ src="Synapses_html_5c0dd819.gif" align="left"><br clear="left">
+<br>
+</p>
+This is the most common type of synapse used in a neural network, and
+its weights change during the learning phase according to the
+implemented learning algorithm. <br>
+It can connect layers having a whatever number of neurons, and the
+number of the weights contained is equal to N<sub>1</sub> x N<sub>2</sub>,
+where N<sub>x</sub> is the number of nodes of the Layer<sub>x</sub>
+<h3>The Delayed Synapse</h3>
+This Synapse has an architecture similar to which of the FullSynapse,
+but each connection is implemented using a matrix of FIR Filter
+elements of size NxM.<br>
+<br>
+The following figure illustrates how a DelaySynapses can be represented:
+<p lang="en-GB" style="margin-bottom: 0cm;"> </p>
+<p lang="en-GB" align="left" style="margin-bottom: 0cm;"><img
+ src="Synapses_html_m72b5ec27.gif" align="left"><br clear="left">
+</p>
+As you can see in the first figure, each connection – represented with
+a greyed rectangle - is implemented as a FIR (Finite Impulse Response)
+filter and in the second figure the internal detail of a FIR filter is
+shown. <br>
+A FIRFilter connection is a delayed connection that permits to
+implement a temporal backprop algorithm functionally equivalent to the
+TDNN (Time Delay Neural Network), but in a more efficient and elegant
+manner. <br>
+<span lang="en-US">To learn more on this kind of synapses, read the
+article <i>Time Series Prediction Using a Neural Network with Embedded
+Tapped Delay-Lines</i>, Eric Wan, in <u>Time Series Prediction:
+Forecasting the Future and Understanding the Past</u>, editors A.
+Weigend and N. Gershenfeld, Addison-Wesley, 1994. Moreover, at </span><a
+ href="http://www.cs.hmc.edu/courses/1999/fall/cs152/firnet/firnet.html"><span
+ lang="en-US">http://www.cs.hmc.edu/courses/1999/fall/cs152/firnet/firnet.html</span></a><span
+ lang="en-US"> you can find some good examples using FIR filters.</span>
+<h3>The Kohonen Synapse</h3>
+The KohonenSynapse belongs to a special kind of components that permit
+to build  unsupervised neural networks. <br>
+This components, in particular, is the central element of the SOM (Self
+Organizing Maps) networks. A KohonenSynapse must be followed necessarily
+by a WTALayer or a GaussianLayer component, forming so a complete SOM,
+like depicted in this figure:
+<p lang="en-GB" style="margin-bottom: 0cm;"><br>
+</p>
+<p lang="en-GB" style="margin-bottom: 0cm;"><img
+ src="Synapses_html_585f9076.gif" align="left"><br clear="left">
+<br>
+</p>
+As you can see, a SOM is composed normally by three elements:
+<ol>
+	<li>A LinearLayer that is 	used as input layer 	</li>
+  <li>A WTALayer (or 	GaussianLayer) that's used as output layer 	 	</li>
+  <li>A KohonenSynapse that 	connects the two above layers </li>
+</ol>
+<p lang="en-GB" align="left" style="margin-bottom: 0cm;"><br>
+</p>
+During the training phase, the KohonenSynapse's weights are adjusted to
+map the N-dimensional input patterns to the 2D map represented by the
+output synapse.<br>
+<br>
+What is the difference between the WTA and the Gaussian layers? The
+answer is very simple, and depends on the precision of the response we
+want from the network. <br>
+If we're, for instance, using a SOM to make predictions (for instance
+to forecast the next day's weather), probably we need to use a
+GaussianLayer as output, because we want a response in terms of
+percentage around a given value (it will be cloudy and maybe it will
+rain), whereas if we'are using a SOM to recognize handwritten
+characters, we need a precise response, (like '<i>the character is A</i>',
+but not '<i>the character could be A or B</i>') hence in this case we
+need to use a WTALayer, that activates one (and only one) neuron for
+each input pattern.
+<h3>The Sanger Synapse<br>
+</h3>
+The SangerSynapse serves to build unsupervised neural networks that
+apply the PCA (Principal Component Analysis) algorithm. <br>
+The PCA is a well known and widely used technique that permits to
+extract the most important components from a signal. The Sanger
+algorithm, in particular, extracts the components in ordered mode –
+from the most meaningful to the less one – so permitting to separate
+the noise from the true signal. <br>
+This components, by reducing the number of input values without
+diminishing the useful signal, permits to train the network on a given
+problem reducing considerably the training time. <br>
+The SangerSynapse normally is posed between two LinearLayers, and the
+output layer has less neurons than the input layer, as depicted in the
+following figure:
+<p lang="en-GB" style="margin-bottom: 0cm;"><img
+ src="Synapses_html_59311d4d.gif" align="left"><br clear="left">
+<br>
+</p>
+By using this synapse along with the Nested Neural Network component
+it's very easy to build modular neural networks where the first NN acts
+as a pre-processing element that reduces the number of the input
+columns and consequently its noise.
+<p lang="en-GB" style="margin-bottom: 0cm;"><br>
+</p>
+</body>
+</html>

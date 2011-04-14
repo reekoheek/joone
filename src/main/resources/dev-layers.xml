@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+
+<!--DOCTYPE params SYSTEM "layers.dtd"-->
+
+<!-- Revision: 0 0.5 data/layers.xml  -->
+
+<params>
+<buttons>
+    <input_layer type="File Input" class="org.joone.io.FileInputSynapse" image="FILEIN"/>
+    <input_layer type="URL Input" class="org.joone.io.URLInputSynapse" image="URLIN"/>
+    <input_layer type="Excel Input" class="org.joone.io.XLSInputSynapse" image="XLSIN"/>
+     
+    <input_layer type="JDBC Input" class="org.joone.io.JDBCInputSynapse" image="JDBCIN"/>
+    <input_layer type="My Input" class="com.xinixtech.joone.io.MyInputSynapse" image="MYIN"/>
+     
+    <input_layer type="Yahoo Finance Input" class="org.joone.io.YahooFinanceInputSynapse" image="YFIN"/>
+    <input_layer type="Image Input" class="org.joone.io.ImageInputSynapse" image="IMGIN"/>
+     
+    <learning_switch type="Learning Switch" class="org.joone.util.LearningSwitch" image="LEARNSWITCH"/>
+    <input_switch type="Input Switch" class="org.joone.io.InputSwitchSynapse" image="SWITCH"/>
+    <input_connector type="Input Connector" class="org.joone.io.InputConnector" image="INCONN"/>
+    <separator/>
+    <layer type="Linear" class="org.joone.engine.LinearLayer" image="LINEAR"/>
+    <layer type="Sigmoid" class="org.joone.engine.SigmoidLayer" image="SIGMOID"/>
+    <layer type="Tanh" class="org.joone.engine.TanhLayer" image="TANH"/>
+    <layer type="SoftMax" class="org.joone.engine.SoftmaxLayer" image="SOFTMAX"/>
+    <layer type="Sine" class="org.joone.engine.SineLayer" image="SINELAYER"/>
+    <layer type="Logarithmic" class="org.joone.engine.LogarithmicLayer" image="LOG"/>
+    <layer type="Delay" class="org.joone.engine.DelayLayer" image="DELAY"/>
+    <layer type="Context" class="org.joone.engine.ContextLayer" image="CONTEXT"/>
+    <layer type="WinnerTakeAll" class="org.joone.engine.WTALayer" image="WTALAYER"/>
+    <layer type="Gaussian" class="org.joone.engine.GaussianLayer" image="GAUSLAYER"/>
+    <layer type="Nested ANN" class="org.joone.net.NestedNeuralLayer" image="NESTEDNN"/>
+    <separator/>
+    <output_switch type="Output Switch" class="org.joone.engine.OutputSwitchSynapse" image="SWITCHOUT"/>
+    <output_layer type="File Output" class="org.joone.io.FileOutputSynapse" image="FILEOUT"/>
+    <output_layer type="Excel Output" class="org.joone.io.XLSOutputSynapse" image="XLSOUT"/>
+    <output_layer type="JDBC Output" class="org.joone.io.JDBCOutputSynapse" image="JDBCOUT"/>
+    <output_layer type="Image Output" class="org.joone.io.ImageOutputSynapse" image="IMGOUT"/>
+    <break/>
+    <teacher_layer type="Teacher" class="org.joone.engine.learning.TeachingSynapse" image="TEACH"/>
+    <!--teacher_layer type="Deflection Teacher" class="org.joone.engine.learning.DeflectionTeachingSynapse" image="DEFLTEACH"/-->
+    <!--teacher_layer type="Comparison" class="org.joone.engine.learning.ComparingSynapse" image="COMPARE"/-->
+    <separator/>
+    <chart_handle type="Chart Handle" class="org.joone.edit.ChartingHandle" image="CHARTHANDLE"/> 
+    <output_layer type="Chart" class="org.joone.edit.ChartOutputSynapse" image="CHART"/> 
+    <output_layer type="VisAD Chart" class="org.joone.edit.visad.VisADOutputSynapse" image="VISADCHT"/> 
+    <separator/>
+    <synapse type="Full Synapse" class="org.joone.engine.FullSynapse" label="F" image="FULLSYNAPS"/>
+    <synapse type="Direct Synapse" class="org.joone.engine.DirectSynapse" label="D" image="DIRECTSYNAPS"/>
+    <synapse type="Delayed Synapse" class="org.joone.engine.DelaySynapse" label="-1" image="DELAYSYNAPS"/>
+    <synapse type="Sanger Synapse" class="org.joone.engine.SangerSynapse" label="S" image="SANGERSYNAPS"/>
+    <synapse type="Kohonen Synapse" class="org.joone.engine.KohonenSynapse" label="K" image="KOHONENSYNAPS"/>
+    <separator/>
+    <input_plugin type="Centre on Zero" class="org.joone.util.CenterOnZeroPlugIn" image="CENTREZERO"/>
+    <input_plugin type="Normalizer" class="org.joone.util.NormalizerPlugIn" image="NORMALIZE"/>
+    <input_plugin type="Delta Normalizer" class="org.joone.util.DeltaNormPlugIn" image="DELTANORM"/>
+    <input_plugin type="Turning Pnts Extractor" class="org.joone.util.MinMaxExtractorPlugIn" image="TURNINGPOINT"/>
+    <input_plugin type="Moving Average" class="org.joone.util.MovingAveragePlugIn" image="MVAVG"/>
+    <input_plugin type="Shuffler" class="org.joone.util.ShufflePlugin" image="SHUFFLE"/>
+    <input_plugin type="Binary" class="org.joone.util.ToBinaryPlugin" image="BINARY"/>
+    <separator/>
+    <output_plugin type="UnNormalizer" class="org.joone.util.UnNormalizerOutputPlugIn" image="UNNORMALIZE"/>
+    <separator/>
+    <monitor_plugin type="Linear annealing" class="org.joone.util.LinearAnnealing" image="LINEARANN"/>
+    <monitor_plugin type="Dynamic annealing" class="org.joone.util.DynamicAnnealing" image="DYNAMICANN"/>
+    <monitor_plugin type="Error Based Terminator" class="org.joone.engine.listeners.ErrorBasedTerminator" image="RMSETERM"/>
+    </buttons>
+<options>
+    <refreshing_rate value="50"/>
+    <!--http_proxy host="proxyHostname" port="8080" userid="myUserid" passw="myPassw"/-->
+</options>
+</params>
+

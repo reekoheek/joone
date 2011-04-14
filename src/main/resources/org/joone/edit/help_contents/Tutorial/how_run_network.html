@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>How to Run a Network</title>
+</head>
+<body>
+<h1>How to Run a Network</h1>
+This turorial follows on from the 'How to Teach a Network' tutorial.
+<p>Now that the network has been taught the problem, it can be tested. </p>
+<p>Add an output file and configure as follows: <br>
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>Results</td>
+    </tr>
+    <tr>
+      <td>File Name</td>
+      <td>c:\joone\results.txt</td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<p>Connect the Output layer to the Results layer. </p>
+<p><img src="../images/xor_8.jpg"> </p>
+<p>In the control panel, set learning to FALSE. </p>
+<p>Set epochs to 1. </p>
+<p>This will run the network once and write the results to the Results
+layer. </p>
+<p>Click Run on the control panel. Now view the results.txt file that
+has been produced. It should look something like this: </p>
+<pre>0.00947656811426465<br>0.9885851252760814<br>0.9885044012541783<br>0.014494768371900018<br></pre>
+This shows that where the input values are the same, the result is near
+zero, and where the input values are different, the result is near one.
+<p></p>
+<hr>
+</body>
+</html>

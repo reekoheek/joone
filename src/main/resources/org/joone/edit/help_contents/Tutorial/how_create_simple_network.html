@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>How to Create a Simple Network</title>
+</head>
+<body>
+<h1>How to Create a Simple Network</h1>
+A basic network task is the XOR (eXclusive-OR) problem. The requirement
+is that if either of two inputs are true, the output is true, but if
+neither or both inputs are false, the output is false.
+<p>This can be described in a 'truth table' as follows: <br>
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Input 1</th>
+      <th>Input 2</th>
+      <th>Output</th>
+    </tr>
+    <tr>
+      <td>false</td>
+      <td>false</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>false</td>
+      <td>true</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>true</td>
+      <td>false</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>true</td>
+      <td>true</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<p>It can be shown that three neurons are required to perform the
+processing. </p>
+<p>As this problem uses true and false data, traditionally represented
+as 1 and 0, a layer of sigmoid neurons will be ideal, as this produces
+values in the range of 0 to 1. The Initial step is to build the actual
+network. Three layers will be required to emulate the network: </p>
+<ul>
+  <li>An input layer of two inputs</li>
+  <li>A hidden layer of three neurons</li>
+  <li>An output layer of 1 output</li>
+</ul>
+To place a sigmoid layer on the development pane, click on the sigmoid
+layer toolbar icon. <img src="../images/sigmoid.jpg"> The toolbar icon
+will appear depressed and moving the cursor over the development pane
+will show as a crosshair.
+<p>Click on the development pane. A sigmoid layer will be placed on the
+screen. Repeat this process twice more so that there are three sigmoid
+layers on the development pane. </p>
+<p><img src="../images/xor_1.jpg"> </p>
+<p>Clicking on any of the layers displays a properties panel, which
+shows information about the layer. These parameters can be edited. </p>
+<p>For each layer, edit the parameters as follows: <br>
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Layer</th>
+      <th>Layer Name</th>
+      <th>Rows</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Input</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Hidden</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Output</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</p>
+<p>Click on the layer labeled Input. A blue circle will appear. Click
+and drag a connection line from this layer to the Hidden layer. </p>
+<p>Repeat this between the Hidden layer and the Output layer. </p>
+<p><img src="../images/xor_2.jpg"> </p>
+<p>The next tutorial, 'How to Save and Open a Network' shows how to
+save this project to file. </p>
+<p></p>
+<hr>
+</body>
+</html>

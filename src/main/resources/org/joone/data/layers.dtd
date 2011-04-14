@@ -1,0 +1,126 @@
+<!--
+    Typical usage:
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE params SYSTEM "layers.dtd">
+
+    <params>
+    ...
+    </params>
+-->
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT buttons (input_switch|learning_switch|input_layer|output_switch|teacher_layer|chart_handle|output_layer|separator|input_plugin|synapse|output_plugin|monitor_plugin|layer)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT chart_handle EMPTY>
+<!ATTLIST chart_handle
+    type CDATA #IMPLIED
+    class CDATA #IMPLIED
+    image CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT input_layer EMPTY>
+<!ATTLIST input_layer
+    type CDATA #IMPLIED
+    class CDATA #IMPLIED
+    image CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT input_plugin EMPTY>
+<!ATTLIST input_plugin
+    type CDATA #IMPLIED
+    class CDATA #IMPLIED
+    image CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT input_switch EMPTY>
+<!ATTLIST input_switch
+    type CDATA #IMPLIED
+    class CDATA #IMPLIED
+    image CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT layer EMPTY>
+<!ATTLIST layer
+    type CDATA #IMPLIED
+    class CDATA #IMPLIED
+    image CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT learning_switch EMPTY>
+<!ATTLIST learning_switch
+    type CDATA #IMPLIED
+    class CDATA #IMPLIED
+    image CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT monitor_plugin EMPTY>
+<!ATTLIST monitor_plugin
+    type CDATA #IMPLIED
+    class CDATA #IMPLIED
+    image CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT options (refreshing_rate)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT output_layer EMPTY>
+<!ATTLIST output_layer
+    type CDATA #IMPLIED
+    class CDATA #IMPLIED
+    image CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT output_plugin EMPTY>
+<!ATTLIST output_plugin
+    type CDATA #IMPLIED
+    class CDATA #IMPLIED
+    image CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT output_switch EMPTY>
+<!ATTLIST output_switch
+    type CDATA #IMPLIED
+    class CDATA #IMPLIED
+    image CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT params (buttons|options)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT refreshing_rate EMPTY>
+<!ATTLIST refreshing_rate
+    value CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT separator EMPTY>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT synapse EMPTY>
+<!ATTLIST synapse
+    type CDATA #IMPLIED
+    label CDATA #IMPLIED
+    class CDATA #IMPLIED
+    image CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT teacher_layer EMPTY>
+<!ATTLIST teacher_layer
+    type CDATA #IMPLIED
+    class CDATA #IMPLIED
+    image CDATA #IMPLIED
+  >

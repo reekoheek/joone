@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title></title>
+  <meta name="GENERATOR" content="OpenOffice.org 1.1.0  (Linux)">
+  <meta name="CREATED" content="20030831;23113500">
+  <meta name="CHANGED" content="20030831;23132200">
+  <style>
+	<!--
+		H2 { margin-left: 0.3cm; margin-bottom: 0.11cm }
+		H2.western { font-family: "Arial", sans-serif; font-size: 14pt; so-language: en-US; font-style: italic }
+		H2.cjk { font-family: "Bitstream Vera Sans"; font-size: 14pt; font-style: italic }
+		H2.ctl { font-family: "Arial", sans-serif; font-size: 14pt; font-style: italic }
+		H3 { margin-bottom: 0.11cm }
+		H3.western { font-family: "Arial", sans-serif; font-size: 13pt; so-language: en-US }
+		H3.cjk { font-family: "Bitstream Vera Sans"; font-size: 13pt }
+		H3.ctl { font-family: "Arial", sans-serif; font-size: 13pt }
+	-->
+	</style>
+</head>
+<body dir="ltr" lang="en-US">
+<h1>Tools</h1>
+<br>
+The Tools menu item permits to control several aspects of the edited
+neural network.<br>
+Here is a list of all the contained items:<br>
+<h2>Control Panel</h2>
+<p style="margin-bottom: 0cm;" align="left"><img alt=""
+ src="../../images/controlPanel.gif"
+ style="width: 278px; height: 509px;"><br>
+</p>
+<p style="margin-bottom: 0cm;" align="left"><br>
+</p>
+<p style="margin-bottom: 0cm;" align="left">The Control Panel is the
+tool that controls the behaviour of the neural net. It contains three
+buttons:</p>
+<p style="margin-bottom: 0cm;" align="left"><br>
+</p>
+<table border="1" cellpadding="7" cellspacing="0" width="603">
+  <col width="109"> <col width="466"> <tbody>
+    <tr valign="top">
+      <td width="109">
+      <p><b>Run</b>:</p>
+      </td>
+      <td width="466">
+      <p>Starts the neural net beginning from the first pattern of the
+input data set.</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="109">
+      <p><b>Continue</b>:</p>
+      </td>
+      <td width="466">
+      <p>Restarts the neural net from the last pattern processed.</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="109">
+      <p><b>Stop</b>:</p>
+      </td>
+      <td width="466">
+      <p>Stops the neural net.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>The Control Panel parameters are:</p>
+<table style="width: 603px; height: 778px;" border="1" cellpadding="7"
+ cellspacing="0">
+  <tbody>
+    <tr>
+      <td valign="top"><b>BatchSize:</b><br>
+      </td>
+      <td valign="top">The number of the cycles for
+each epoch into which the batch mode is active. If the batch mode is
+true, insert here a number between 1 and TrainingPatterns. This
+parameter permits to set the mixed batch mode, where the net learns in
+batch mode from the cycle 1 to the 'batch size' cycle, and then learns
+in on-line mode for the remaining cycles.<br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="116">
+      <p align="left"><b>Epochs</b>:</p>
+      </td>
+      <td width="459">
+      <p align="left">The total number of the cycles for which the net
+is to be trained.</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="116">
+      <p align="left"><b>TrainingPatterns</b>:</p>
+      </td>
+      <td width="459">
+      <p align="left">The total number of input rows for which the net
+is to be trained. This can be different from the number of rows read
+from the FileInput component (lastRow – firstRow + 1).</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>ValidationPatterns:</b><br>
+      </td>
+      <td valign="top">The total number of input rows
+for which the net is to be validated. Used in conjunction with the
+Validation parameter set to true.<br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="116">
+      <p align="left"><b>Momentum</b>:</p>
+      </td>
+      <td width="459">
+      <p align="left">The value of the momentum (see the literature
+about the back-propagation algorithm).</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="116">
+      <p align="left"><b>Learning Rate</b>:</p>
+      </td>
+      <td width="459">
+      <p align="left">The value of the learning rate (see the
+literature about the back-propagation algorithm).</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="116">
+      <p align="left"><b>Learning</b>:</p>
+      </td>
+      <td width="459">
+      <p align="left">True if the net is to be trained, otherwise set
+false.</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>LearningMode</b><br>
+      </td>
+      <td valign="top">The leaning algorithm chosen to
+train the network:<br>
+0 = On-Line Backprop (the default)<br>
+1 = Batch Backprop<br>
+2 = Resilient BackProp (RPROP)<br>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top"><b>Supervised:</b><br>
+      </td>
+      <td valign="top">True if the net must learn in
+the supervised mode. Normally you don't need to set this parameter, as
+the editor understands and set the right learning mode by cheching the
+presence of the Teacher component.<br>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="116">
+      <p align="left"><b>Validation</b>:</p>
+      </td>
+      <td width="459">
+      <p align="left">True if the net is to be tested on a validation
+data set. Used ONLY in conjunction with a Learning Switch component
+inserted in the net.</p>
+      </td>
+    </tr>
+    <tr valign="top">
+      <td width="116">
+      <p align="left"><b>Pre-Learning</b>:&nbsp;&nbsp; <br>
+      </p>
+      </td>
+      <td width="459">
+      <p align="left">The number of initial cycles skipped from the
+learning algorithm. Normally this parameter is zero, and is used when
+there is a DelayLayer component in the net. In this case pre-learning
+must be set equal to the number of taps of that component allowing its
+buffer to become filled before the learning cycle starts. <br>
+      </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><span style="font-weight: bold;">UseRMSE</span><br>
+      </td>
+      <td style="vertical-align: top;">If true, the error is calculated
+as Root Mean Squared Error (RMSE), otherwise as Mean Squared Error (MSE)<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<h3>The meaning of the pre-learning parameter</h3>
+To better explain the use of the Pre-Learning parameter, it serves to
+avoid making changes to the values of biases and synapses in the
+presence of a delayed layer. This is because if these values are
+altered
+from the first cycle of the learning process, this would adjust them
+using a wrong input pattern, obtained before the full input ‘temporal
+window’ is presented to the network. For instance, if an input pattern
+is composed of one column as follows:
+<p style="margin-bottom: 0cm;" align="left"><br>
+</p>
+<span style="font-family: monospace;">0.2</span><span
+ style="font-family: monospace;"> </span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;">0.5</span><span
+ style="font-family: monospace;"> </span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;">0.1</span><span
+ style="font-family: monospace;"> </span><br
+ style="font-family: monospace;">
+<span style="font-family: monospace;">...</span>
+<p style="margin-bottom: 0cm;" align="left">and an input delay layer
+with taps = 3 is present, then when the network might only have read
+the
+first two input values (0.2 and 0.5), and the output of this first
+layer
+would be: </p>
+<p style="margin-bottom: 0cm;" align="left" lang="en-GB"><br>
+</p>
+<p style="margin-bottom: 0cm;" align="left" lang="en-GB"><a
+ name="_1079900344"></a><a name="_1079899114"></a><a name="_1078744838"></a><a
+ name="_1078744836"></a><a name="_1078744670"></a> <img
+ src="../../images/delayLayer.png" name="Object2"
+ style="width: 257px; height: 379px;" title="" alt=""></p>
+<p style="margin-bottom: 0cm;" align="left" lang="en-GB"><br>
+</p>
+<p style="margin-bottom: 0cm;" align="left">In this case the network
+would learn the wrong {<font color="#ff0000">0</font>, <font
+ color="#ff0000">0</font>, 0.2, 0.5} pattern.</p>
+<p style="margin-bottom: 0cm;" align="left">Thus the Pre-Learning
+parameter must be set equal to the taps parameter so that the network
+starts to learn only when all the ‘taps’ values have been read.<br>
+</p>
+<h2>To Do List</h2>
+The To Do List contains a list of errors that prevent the neural
+network to run. When you try to run a neural network, a check is
+performed, and in case of errors, the network doesn't start and the
+following message is displayed:<br>
+<br>
+<img src="../../images/checkError.png" title="" alt=""
+ style="width: 251px; height: 110px;"><br>
+<br>
+In this case, you must open the to-do list, where a list of all the
+errors is shown, as in the following example:<br>
+<br>
+<img src="../../images/todoListWithErrors.png" title="" alt=""
+ style="width: 740px; height: 120px;"><br>
+<br>
+The first word gives the severity of the error: <br>
+<ul>
+  <li><b>Warning</b> - the signaled problem is not blocking</li>
+  <li><b>Error</b> - fatal error: you must fix it to run the network<br>
+  </li>
+</ul>
+You must fix at least the signaled problems having severity = 'Error'
+and, only when, after pressing the 'Revalidate' button, the to-do list
+contains the following message:<br>
+<br>
+<img src="../../images/todoList.png" title="" alt=""
+ style="width: 173px; height: 75px;"><br>
+<br>
+then the network is OK and it can run.<br>
+<b>Note</b>: even if the warnings are not blocking, it should be better
+to fix them, as not doing so will result in unspecified behaviour and
+your network could not be able to learn properly.<br>
+<br>
+<h2>Add Noise</h2>
+<p>This adds a random noise component to the net and is useful for
+allowing the net to exit from a local minimum. At the end of a round of
+training, adding noise may ‘jolt’ the netork out of a local minimum so
+that further training produces a better network.</p>
+<h2>Randomize</h2>
+<p>This reset the weights of a neural network, initializing it to a
+random state.</p>
+<h2>Reset Input Streams</h2>
+<p>This command resets all the buffered input streams in input and
+teacher layers, permitting the reloading of their buffers with the
+input
+data. This is useful after the contents of some files have changed and
+it is necessary to reload the data.<br>
+</p>
+<h2>Macro Editor</h2>
+See the corresponding help page<br>
+<br>
+</body>
+</html>
